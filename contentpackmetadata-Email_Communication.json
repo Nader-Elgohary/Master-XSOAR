@@ -1,0 +1,179 @@
+{
+	"author": "Cortex XSOAR",
+	"authorImage": "content/packs/Base/Author_image.png",
+	"beta": false,
+	"categories": [],
+	"certification": "certified",
+	"contentItemTypes": [
+		"automation",
+		"incidentfield",
+		"incidenttype",
+		"classifier",
+		"layoutscontainer"
+	],
+	"contentItems": {
+		"automation": [
+			{
+				"description": "Displays the original email in HTML format.",
+				"name": "DisplayEmailHtml",
+				"tags": [
+					"dynamic-section"
+				]
+			},
+			{
+				"description": "Preprocessing script for email communication layout.\nThis script checks if the incoming email contains an Incident ID to link the mail to an existing incident, and tags the email as \"email-thread\".\n\nFor more information about the preprocessing rules, refer to: https://demisto.developers.paloaltonetworks.com/docs/incidents/incident-pre-processing",
+				"name": "PreprocessEmail",
+				"tags": [
+					"email",
+					"preProcessing"
+				]
+			},
+			{
+				"description": "Send email reply",
+				"name": "SendEmailReply",
+				"tags": []
+			}
+		],
+		"classifier": [
+			{
+				"description": "Classifies EWS email messages.",
+				"name": "EWS - Classifier - Email Communication"
+			},
+			{
+				"description": "Maps incoming EWS email message fields.",
+				"name": "EWS - Incoming Mapper - Email Communication"
+			},
+			{
+				"description": "Classifies Gmail email messages.",
+				"name": "Gmail - Classifier - Email Communication"
+			},
+			{
+				"description": "Maps incoming Gmail email message fields.",
+				"name": "Gmail - Incoming Mapper - Email Communication"
+			},
+			{
+				"description": "Classifies MS Graph Mail Single User email messages.",
+				"name": "MS Graph Mail Single User - Classifier - Email Communication"
+			},
+			{
+				"description": "Maps incoming MS Graph Mail Single User email message fields.",
+				"name": "MS Graph Mail Single User - Incoming Mapper - Email Communication"
+			},
+			{
+				"description": "Classifies MS Graph Mail email messages.",
+				"name": "MS Graph Mail - Classifier - Email Communication"
+			},
+			{
+				"description": "Maps incoming MS Graph Mail email message fields.",
+				"name": "MS Graph Mail - Incoming Mapper - Email Communication"
+			}
+		],
+		"dashboard": null,
+		"incidentfield": [
+			{
+				"description": "",
+				"name": "Add CC To Email",
+				"type": "shortText"
+			},
+			{
+				"description": "",
+				"name": "Email Generated Code",
+				"type": "shortText"
+			}
+		],
+		"incidenttype": [
+			{
+				"closureScript": "",
+				"days": 0,
+				"hours": 0,
+				"name": "Email Communication",
+				"playbook": "",
+				"weeks": 0
+			}
+		],
+		"indicatorfield": null,
+		"integration": null,
+		"layoutscontainer": [
+			{
+				"description": "",
+				"name": "Email Communication"
+			}
+		],
+		"playbook": null,
+		"report": null,
+		"reputation": null,
+		"widget": null
+	},
+	"created": "2020-08-27T18:37:51+02:00",
+	"currentVersion": "1.3.10",
+	"dependencies": {
+		"Base": {
+			"author": "Cortex XSOAR",
+			"certification": "certified",
+			"mandatory": true,
+			"minVersion": "1.12.24",
+			"name": "Base"
+		},
+		"CommonTypes": {
+			"author": "Cortex XSOAR",
+			"certification": "certified",
+			"mandatory": true,
+			"minVersion": "3.1.4",
+			"name": "Common Types"
+		},
+		"Phishing": {
+			"author": "Cortex XSOAR",
+			"certification": "certified",
+			"mandatory": true,
+			"minVersion": "2.2.6",
+			"name": "Phishing"
+		}
+	},
+	"deprecated": false,
+	"description": "Do you have to send multiple emails to end users? This content pack helps you streamline the process and automate updates, notifications and more.\n",
+	"downloads": 1360,
+	"eulaLink": "https://github.com/demisto/content/blob/master/LICENSE",
+	"fromServerVersion": "5.0.0",
+	"general": [
+		"generalFieldCertified",
+		"generalFieldByCortexXSOAR",
+		"generalFieldFree",
+		"generalFieldSupportIncluded"
+	],
+	"id": "EmailCommunication",
+	"installMessage": "",
+	"integrations": [],
+	"itemVersion": "1.3.10",
+	"keywords": [],
+	"legacy": true,
+	"name": "Email Communication",
+	"packID": "EmailCommunication",
+	"premium": false,
+	"previewOnly": false,
+	"price": 0,
+	"propagationLabels": [
+		"all"
+	],
+	"rawKeywords": null,
+	"rawTags": null,
+	"rawUseCases": null,
+	"readme": "The SOC team needs to communicate and respond to end-users to get more details about an alert, continue with an investigation, etc, usually using emails. \n \nThis email communications content pack enables security teams to automate the communication and notification process with end users.\n \nWith this Content Pack, you can use the layout as-is for email communication. It can also be used for other incident types by adding the email communication layout to the different incident types.\n\n##### What does this pack do?\nThe layout helps you communicate and respond to emails in the Cortex XSOAR system:\n- Add CC to the email\n- Write the email you want to send\n- Add attachments if needed to the email.\n- Tag all the related emails (incoming/outgoing) to the incident and manage as an email thread - the user can view all the communications in the layout without leaving the system.\n\nThis pack includes, out of the box, a full layout, scripts, and incident fields. All of these are customizable to suit the needs of your organization.\n\n_For more information, visit our [Cortex XSOAR Developer Docs](https://xsoar.pan.dev/)\n\n![Email_Communication_layout](https://raw.githubusercontent.com/demisto/content/master/Packs/EmailCommunication/doc_files/Email_Communication_layout.png)\n",
+	"searchRank": 10,
+	"serverMaxVersion": "",
+	"serverMinVersion": "5.0.0",
+	"support": "xsoar",
+	"supportDetails": {
+		"email": "",
+		"url": "https://www.paloaltonetworks.com/cortex"
+	},
+	"tags": [
+		"Use Case"
+	],
+	"toServerVersion": "",
+	"updated": "2021-07-08T13:34:35+02:00",
+	"useCases": [
+		"Email Communication"
+	],
+	"version": -1,
+	"versionInfo": "394494"
+}
