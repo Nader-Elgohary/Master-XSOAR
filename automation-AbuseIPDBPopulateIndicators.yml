@@ -1,0 +1,68 @@
+args:
+- defaultValue: "30"
+  description: Time range to return reports for (in days).
+  name: days
+- defaultValue: "200"
+  description: Maximum number of IPs to retrieve.
+  name: limit
+- defaultValue: "100"
+  description: The Minimum confidence required of IPs to retrieve.
+  name: confidence
+comment: Extracts blacklisted IP addresses from AbuseIPDB, and Populates Indicators
+  accordingly.
+commonfields:
+  id: AbuseIPDBPopulateIndicators
+  version: -1
+contentitemexportablefields:
+  contentitemfields:
+    fromServerVersion: 5.0.0
+    itemVersion: 1.0.7
+    packID: AbuseDB
+    packPropagationLabels:
+    - all
+    propagationLabels: []
+    toServerVersion: ""
+dependson:
+  must:
+  - '|||abuseipdb-get-blacklist'
+  - Builtin|||createNewIndicator
+dockerimage: demisto/python:2.7.18.24066
+enabled: true
+engineinfo: {}
+name: AbuseIPDBPopulateIndicators
+pswd: ""
+runas: DBotWeakRole
+runonce: false
+script: |2
+
+
+
+  BLACKLISTED = "Bad"
+  res = demisto.executeCommand("abuseipdb-get-blacklist", {
+      "days": demisto.args().get("days"),
+      "limit": demisto.args().get("limit"),
+      "confidence": demisto.args().get("confidence")
+  })
+
+  ips = res[0]['Contents']
+
+  if not ips or "Too many requests" in ips:
+      return_error("No Indicators were created (possibly bad API key)")
+
+  # Extract IPs into new Indicators
+  for ip in ips:
+      demisto.executeCommand("createNewIndicator", {
+          "type": 'ip',
+          "value": ip,
+          "source": 'AbuseIPDB',
+          "reputation": BLACKLISTED,
+          "seenNow": "true",
+      })
+
+  demisto.results("All Indicators were created successfully")
+scripttarget: 0
+subtype: python2
+system: true
+tags: []
+timeout: 900ns
+type: python
