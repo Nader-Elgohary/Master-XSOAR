@@ -1,0 +1,452 @@
+{
+	"cronView": false,
+	"dashboard": {
+		"allRead": false,
+		"allReadWrite": false,
+		"commitMessage": "",
+		"dbotCreatedBy": "",
+		"fromDate": "0001-01-01T00:00:00Z",
+		"fromDateLicense": "0001-01-01T00:00:00Z",
+		"fromServerVersion": "",
+		"hasRole": false,
+		"id": "",
+		"isCommon": false,
+		"itemVersion": "",
+		"layout": [
+			{
+				"forceRange": false,
+				"h": 4,
+				"i": "f7521cb0-1275-11ec-810b-1fe6e6419a87",
+				"id": "f7521cb0-1275-11ec-810b-1fe6e6419a87",
+				"reflectDimensions": true,
+				"w": 12,
+				"widget": {
+					"category": "",
+					"commitMessage": "",
+					"dataType": "incidents",
+					"dateRange": {
+						"fromDate": "0001-01-01T00:00:00Z",
+						"fromDateLicense": "0001-01-01T00:00:00Z",
+						"period": {
+							"by": "",
+							"byFrom": "days",
+							"byTo": "",
+							"field": "",
+							"fromValue": null,
+							"toValue": null
+						},
+						"toDate": "0001-01-01T00:00:00Z"
+					},
+					"fromServerVersion": "",
+					"id": "1d73edfe-615e-4a23-8c4a-988b539c2905",
+					"isPredefined": false,
+					"itemVersion": "",
+					"modified": "2021-09-10T22:30:34.861465901+02:00",
+					"name": "test investigation.id:30887",
+					"packID": "",
+					"params": {
+						"tableColumns": [
+							{
+								"isDefault": true,
+								"key": "id",
+								"position": 0,
+								"width": 110
+							},
+							{
+								"isDefault": true,
+								"key": "name",
+								"position": 2,
+								"width": 300
+							},
+							{
+								"isDefault": true,
+								"key": "type",
+								"position": 3,
+								"width": 200
+							},
+							{
+								"isDefault": true,
+								"key": "severity",
+								"position": 4,
+								"width": 80
+							},
+							{
+								"isDefault": true,
+								"key": "status",
+								"position": 5,
+								"width": 80
+							},
+							{
+								"isDefault": true,
+								"key": "owner",
+								"position": 6,
+								"width": 160
+							},
+							{
+								"isDefault": true,
+								"key": "roles",
+								"position": 7,
+								"width": 160
+							},
+							{
+								"isDefault": true,
+								"key": "playbookId",
+								"position": 8,
+								"width": 150
+							},
+							{
+								"isDefault": true,
+								"key": "occurred",
+								"position": 9,
+								"width": 200
+							},
+							{
+								"isDefault": true,
+								"key": "dueDate",
+								"position": 10,
+								"width": 200
+							}
+						]
+					},
+					"prevName": "test investigation.id:30887",
+					"propagationLabels": [
+						"all"
+					],
+					"query": "investigation.id:30887",
+					"shouldCommit": false,
+					"size": 0,
+					"sort": null,
+					"sortValues": null,
+					"toServerVersion": "",
+					"vcShouldIgnore": false,
+					"vcShouldKeepItemLegacyProdMachine": false,
+					"version": 1,
+					"widgetType": "table"
+				},
+				"x": 0,
+				"y": 0
+			}
+		],
+		"locked": false,
+		"modified": "0001-01-01T00:00:00Z",
+		"name": "PhishingReportNader Summary.pdf",
+		"owner": "",
+		"packID": "",
+		"period": {
+			"by": "",
+			"byFrom": "",
+			"byTo": "",
+			"field": "",
+			"fromValue": null,
+			"toValue": null
+		},
+		"prevName": "",
+		"previousAllRead": false,
+		"previousAllReadWrite": false,
+		"previousRoles": null,
+		"roles": null,
+		"shouldCommit": false,
+		"sortValues": null,
+		"system": false,
+		"toDate": "0001-01-01T00:00:00Z",
+		"toServerVersion": "",
+		"vcShouldIgnore": false,
+		"vcShouldKeepItemLegacyProdMachine": false,
+		"version": 0
+	},
+	"decoder": {
+		"evidences.fetched": {
+			"type": "date",
+			"value": "02/01/06 3:04:05 PM"
+		},
+		"evidences.markedDate": {
+			"type": "date",
+			"value": "02/01/06 3:04:05 PM"
+		},
+		"evidences.occurred": {
+			"type": "date",
+			"value": "02/01/06 3:04:05 PM"
+		},
+		"incident.dbotStatus.0": {
+			"type": "string",
+			"value": "Pending"
+		},
+		"incident.dbotStatus.1": {
+			"type": "string",
+			"value": "Active"
+		},
+		"incident.dbotStatus.2": {
+			"type": "string",
+			"value": "Closed"
+		},
+		"incident.dbotStatus.3": {
+			"type": "string",
+			"value": "Closed"
+		},
+		"incident.dbotStatus.4": {
+			"type": "string",
+			"value": "On Hold"
+		},
+		"incident.dueDate": {
+			"type": "date",
+			"value": "2006-01-02T15:04:05Z07:00"
+		},
+		"incident.openDuration": {
+			"type": "duration",
+			"value": ""
+		},
+		"incident.phase.": {
+			"type": "string",
+			"value": "Unassigned"
+		},
+		"incident.roles.": {
+			"type": "string",
+			"value": "Unassigned"
+		},
+		"incident.severity.0": {
+			"type": "string",
+			"value": "Unknown"
+		},
+		"incident.severity.0.5": {
+			"type": "string",
+			"value": "Informational"
+		},
+		"incident.severity.1": {
+			"type": "string",
+			"value": "Low"
+		},
+		"incident.severity.2": {
+			"type": "string",
+			"value": "Medium"
+		},
+		"incident.severity.3": {
+			"type": "string",
+			"value": "High"
+		},
+		"incident.severity.4": {
+			"type": "string",
+			"value": "Critical"
+		},
+		"incident.status.0": {
+			"type": "string",
+			"value": "Pending"
+		},
+		"incident.status.1": {
+			"type": "string",
+			"value": "Active"
+		},
+		"incident.status.2": {
+			"type": "string",
+			"value": "Closed"
+		},
+		"incident.status.3": {
+			"type": "string",
+			"value": "Closed"
+		},
+		"incident.status.4": {
+			"type": "string",
+			"value": "On Hold"
+		},
+		"indicators.score.0": {
+			"type": "string",
+			"value": "Unknown"
+		},
+		"indicators.score.1": {
+			"type": "string",
+			"value": "Benign"
+		},
+		"indicators.score.2": {
+			"type": "string",
+			"value": "Suspicious"
+		},
+		"indicators.score.3": {
+			"type": "string",
+			"value": "Malicious"
+		},
+		"investigation.openDuration": {
+			"type": "duration",
+			"value": ""
+		},
+		"investigation.status.0": {
+			"type": "string",
+			"value": "Active"
+		},
+		"investigation.status.1": {
+			"type": "string",
+			"value": "Done"
+		},
+		"investigation.type.0": {
+			"type": "string",
+			"value": "Standard"
+		},
+		"investigation.type.1": {
+			"type": "string",
+			"value": "Restricted"
+		},
+		"investigation.type.9": {
+			"type": "string",
+			"value": "Playground"
+		}
+	},
+	"disableHeader": false,
+	"endingDate": "0001-01-01T00:00:00Z",
+	"fromServerVersion": "",
+	"id": "de714f9a-ce11-4865-86dc-0b587ba7181c",
+	"itemVersion": "",
+	"latestReportName": "",
+	"latestReportTime": "0001-01-01T00:00:00Z",
+	"latestReportUsername": "",
+	"latestScheduledReportTime": "0001-01-01T00:00:00Z",
+	"locked": false,
+	"name": "PhishingReportNader Summary.pdf",
+	"nextScheduledTime": "0001-01-01T00:00:00Z",
+	"orientation": "portrait",
+	"packID": "",
+	"paperSize": "A4",
+	"propagationLabels": [
+		"all"
+	],
+	"recipients": null,
+	"recurrent": false,
+	"reportType": "",
+	"runOnce": false,
+	"runningRoles": null,
+	"runningUser": "",
+	"scheduled": false,
+	"sections": [
+		{
+			"autoPageBreak": false,
+			"automation": {
+				"args": null,
+				"id": "",
+				"name": "",
+				"noEvent": false
+			},
+			"data": null,
+			"layout": {
+				"classes": "striped stackable small compact",
+				"columnPos": 0,
+				"h": 4,
+				"i": "f7521cb0-1275-11ec-810b-1fe6e6419a87",
+				"readableHeaders": {
+					"dueDate": "SLA",
+					"id": "ID",
+					"name": "Name",
+					"occurred": "Occurred",
+					"owner": "Owner",
+					"playbookId": "Playbook",
+					"roles": "Roles",
+					"severity": "Severity",
+					"status": "Status",
+					"type": "Type"
+				},
+				"reflectDimensions": true,
+				"rowPos": 0,
+				"tableColumns": [
+					"id",
+					"name",
+					"type",
+					"severity",
+					"status",
+					"owner",
+					"roles",
+					"playbookId",
+					"occurred",
+					"dueDate"
+				],
+				"tableColumnsMetaData": [
+					{
+						"isDefault": true,
+						"key": "id",
+						"position": 0,
+						"width": 110
+					},
+					{
+						"isDefault": true,
+						"key": "name",
+						"position": 2,
+						"width": 300
+					},
+					{
+						"isDefault": true,
+						"key": "type",
+						"position": 3,
+						"width": 200
+					},
+					{
+						"isDefault": true,
+						"key": "severity",
+						"position": 4,
+						"width": 80
+					},
+					{
+						"isDefault": true,
+						"key": "status",
+						"position": 5,
+						"width": 80
+					},
+					{
+						"isDefault": true,
+						"key": "owner",
+						"position": 6,
+						"width": 160
+					},
+					{
+						"isDefault": true,
+						"key": "roles",
+						"position": 7,
+						"width": 160
+					},
+					{
+						"isDefault": true,
+						"key": "playbookId",
+						"position": 8,
+						"width": 150
+					},
+					{
+						"isDefault": true,
+						"key": "occurred",
+						"position": 9,
+						"width": 200
+					},
+					{
+						"isDefault": true,
+						"key": "dueDate",
+						"position": 10,
+						"width": 200
+					}
+				],
+				"w": 12
+			},
+			"query": {
+				"filter": {
+					"fromDate": "0001-01-01T00:00:00Z",
+					"period": {
+						"by": "",
+						"byFrom": "days",
+						"byTo": "",
+						"field": "",
+						"fromValue": null,
+						"toValue": null
+					},
+					"query": "investigation.id:30887",
+					"toDate": "0001-01-01T00:00:00Z"
+				},
+				"type": "incident"
+			},
+			"title": "test investigation.id:30887",
+			"titleStyle": null,
+			"type": "table"
+		}
+	],
+	"sensitive": false,
+	"startDate": "0001-01-01T00:00:00Z",
+	"system": false,
+	"times": 0,
+	"timezoneOffset": 0,
+	"toServerVersion": "",
+	"type": "pdf",
+	"userAPIKey": "",
+	"userAPIKeyID": "",
+	"version": -1
+}
