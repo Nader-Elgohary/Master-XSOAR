@@ -1,0 +1,51 @@
+comment: Data output script for populating the dashboard number graph widget with
+  the number of failing integrations.
+commonfields:
+  id: IntegrationsCheck-Widget-NumberFailingInstances
+  version: -1
+contentitemexportablefields:
+  contentitemfields:
+    fromServerVersion: 6.0.0
+    itemVersion: 1.2.4
+    packID: IntegrationsAndIncidentsHealthCheck
+    packPropagationLabels:
+    - all
+    propagationLabels: []
+    toServerVersion: ""
+dockerimage: demisto/python3:3.9.1.15759
+enabled: true
+engineinfo: {}
+name: IntegrationsCheck-Widget-NumberFailingInstances
+pswd: ""
+runas: DBotWeakRole
+runonce: false
+script: |2
+
+
+
+
+  def main():
+      list_data = demisto.executeCommand("getList", {"listName": "XSOAR Health - Failed Instance Names"})
+      list_contents_attribute = list_data[0].get('Contents', '')
+      if "Item not found" in list_contents_attribute:
+          list_content = ['']
+      else:
+          list_content = list(list_contents_attribute.split(","))
+      failing_incident_count = len(list_content)
+
+      if list_content == ['']:
+          demisto.results(0)
+
+      else:
+          demisto.results(failing_incident_count)
+
+
+  if __name__ in ["__main__", "builtin", "builtins"]:
+      main()
+scripttarget: 0
+subtype: python3
+system: true
+tags:
+- widget
+- failedInstances
+type: python
