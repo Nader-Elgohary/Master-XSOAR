@@ -1,0 +1,34 @@
+{
+	"brands": null,
+	"defaultIncidentType": "ServiceNow Ticket",
+	"description": "Classifies ServiceNow tickets.",
+	"feed": false,
+	"fromServerVersion": "6.0.0",
+	"id": "ServiceNow",
+	"incidentSamples": null,
+	"indicatorSamples": null,
+	"instanceIds": null,
+	"itemVersion": "2.2.2",
+	"keyTypeMap": {
+		"incident": "ServiceNow Ticket"
+	},
+	"locked": false,
+	"logicalVersion": 0,
+	"mapping": null,
+	"name": "ServiceNow Classifier",
+	"nameRaw": "ServiceNow Classifier",
+	"packID": "ServiceNow",
+	"packPropagationLabels": [
+		"all"
+	],
+	"sourceClassifierId": "",
+	"system": true,
+	"toServerVersion": "",
+	"transformer": {
+		"complex": null,
+		"simple": "sys_class_name"
+	},
+	"type": "classification",
+	"unclassifiedCases": null,
+	"version": -1
+}
