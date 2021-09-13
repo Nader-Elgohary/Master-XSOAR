@@ -1,0 +1,51 @@
+{
+	"associatedToAll": false,
+	"associatedTypes": [
+		"Integrations and Incidents Health Check"
+	],
+	"breachScript": "",
+	"caseInsensitive": true,
+	"cliName": "similarincident",
+	"closeForm": false,
+	"columns": null,
+	"content": true,
+	"defaultRows": null,
+	"description": "",
+	"editForm": true,
+	"fieldCalcScript": "",
+	"fromServerVersion": "6.0.0",
+	"group": 0,
+	"hidden": false,
+	"id": "incident_similarincident",
+	"isReadOnly": false,
+	"itemVersion": "1.2.4",
+	"locked": false,
+	"mergeStrategy": "",
+	"name": "similarIncident",
+	"neverSetAsRequired": false,
+	"ownerOnly": false,
+	"packID": "IntegrationsAndIncidentsHealthCheck",
+	"packPropagationLabels": [
+		"all"
+	],
+	"placeholder": "",
+	"propagationLabels": [],
+	"required": false,
+	"runScriptAfterUpdate": false,
+	"script": "",
+	"selectValues": [
+		","
+	],
+	"sla": 0,
+	"system": false,
+	"systemAssociatedTypes": null,
+	"threshold": 72,
+	"toServerVersion": "",
+	"type": "multiSelect",
+	"unmapped": false,
+	"unsearchable": false,
+	"useAsKpi": false,
+	"validatedError": "",
+	"validationRegex": "",
+	"version": -1
+}
