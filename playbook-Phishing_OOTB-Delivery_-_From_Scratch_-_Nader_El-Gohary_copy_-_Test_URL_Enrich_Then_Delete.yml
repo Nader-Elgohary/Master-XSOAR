@@ -1,0 +1,376 @@
+contentitemexportablefields:
+  contentitemfields:
+    fromServerVersion: ""
+    itemVersion: ""
+    packID: ""
+    propagationLabels:
+    - all
+    toServerVersion: ""
+id: e0797505-42ca-4c54-8cd9-12a0ce22b5d3
+inputs:
+- description: The default role to assign the incident to.
+  key: Role
+  playbookInputQuery: null
+  required: false
+  value:
+    simple: Administrator
+- description: |
+    Enable the "Search and Delete" capability (can be either "True" or "False").
+    In case of a malicious email, the "Search and Delete" sub-playbook will look for other instances of the email and delete them pending analyst approval.
+  key: SearchAndDelete
+  playbookInputQuery: null
+  required: false
+  value:
+    simple: "False"
+- description: |-
+    Enable the "Block Indicators" capability (can be either "True" or "False").
+    In case of a malicious email, the "Block Indicators" sub-playbook will block all malicious indicators in the relevant integrations.
+  key: BlockIndicators
+  playbookInputQuery: null
+  required: false
+  value:
+    simple: "False"
+- description: Whether the authenticity of the email should be verified, using SPF,
+    DKIM and DMARC.
+  key: AuthenticateEmail
+  playbookInputQuery: null
+  required: false
+  value:
+    simple: "False"
+- description: Set to true to assign only user that is currently on shift. Requires
+    Cortex XSOAR v5.5 or later.
+  key: OnCall
+  playbookInputQuery: null
+  required: false
+  value:
+    simple: "false"
+- description: |-
+    Determines which product and playbook will be used to search and delete the phishing email from users' inboxes.
+    Set this to "O365" to use the O365 - Security And Compliance - Search And Delete playbook.
+    Set this to "EWS" to use the Search And Delete Emails - EWS playbook.
+  key: SearchAndDeleteIntegration
+  playbookInputQuery: null
+  required: false
+  value:
+    simple: EWS
+- description: |-
+    The method by which to delete emails using the O365 - Security And Compliance - Search And Delete playbook. Could be "Soft" (recoverable), or "Hard" (unrecoverable). Leave empty to decide manually for each email incident.
+    This is only applicable if the SearchAndDeleteIntegration input is set to O365.
+  key: O365DeleteType
+  playbookInputQuery: null
+  required: false
+  value:
+    simple: Soft
+- description: Used only when searching and deleting emails in O365. The exchange
+    location. Determines from where to search and delete emails searched using O365
+    playbooks. Use the value "All" to search all mailboxes, or use ${incident.emailto}
+    to search and delete the email only from the recipient's inbox. Note - searching
+    all mailboxes may take a significant amount of time. This input is only applicable
+    if the SearchAndDeleteIntegration input is set to O365.
+  key: O365ExchangeLocation
+  playbookInputQuery: null
+  required: false
+  value:
+    complex:
+      accessor: emailto
+      root: incident
+- description: Used only when searching and deleting emails in O365. Whether to include
+    mailboxes other than regular user mailboxes in the compliance search. Default
+    is "false".
+  key: O365AllowNotFoundSearchLocations
+  playbookInputQuery: null
+  required: false
+  value:
+    simple: "false"
+- description: Used only when searching and deleting emails in O365. Comma-separated
+    list of mailboxes/distribution groups to exclude when you use the value "All"
+    for the O365ExchangeLocation input.
+  key: O365ExchangeLocationExeculsion
+  playbookInputQuery: null
+  required: false
+  value: {}
+- description: Check Microsoft's headers for BCL/PCL/SCL scores and set the "Severity"
+    and "Email Classification" accordingly.
+  key: CheckMicrosoftHeaders
+  playbookInputQuery: null
+  required: false
+  value:
+    simple: "True"
+name: Phishing OOTB-Delivery - From Scratch - Nader El-Gohary_copy - Test URL Enrich
+  Then Delete
+outputs: []
+sourceplaybookid: 51000570-2b5c-4ad0-8b86-c42ab3780784
+starttaskid: "0"
+tasks:
+  "0":
+    id: "0"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    nexttasks:
+      '#none#':
+      - "1"
+    note: false
+    quietmode: 0
+    separatecontext: false
+    skipunavailable: false
+    task:
+      brand: ""
+      id: 851a27cc-3a67-49fb-87df-ba0102aea6d1
+      iscommand: false
+      name: ""
+      version: -1
+    taskid: 851a27cc-3a67-49fb-87df-ba0102aea6d1
+    timertriggers: []
+    type: start
+    view: |-
+      {
+        "position": {
+          "x": 480,
+          "y": 50
+        }
+      }
+  "1":
+    id: "1"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    nexttasks:
+      '#none#':
+      - "2"
+    note: false
+    quietmode: 0
+    separatecontext: false
+    skipunavailable: false
+    task:
+      brand: ""
+      id: 3c676b1c-05c1-48f0-8e0e-d6d360605194
+      iscommand: false
+      name: StartDetectionTimeForTheIncidentSinceItBeingCreatedTillClosed
+      type: title
+      version: -1
+    taskid: 3c676b1c-05c1-48f0-8e0e-d6d360605194
+    timertriggers:
+    - action: start
+      fieldname: detectionsla
+    type: title
+    view: |-
+      {
+        "position": {
+          "x": 480,
+          "y": 195
+        }
+      }
+  "2":
+    id: "2"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    nexttasks:
+      '#none#':
+      - "12"
+      - "15"
+    note: false
+    quietmode: 0
+    separatecontext: false
+    skipunavailable: false
+    task:
+      brand: ""
+      id: 15f9b1d7-8376-4337-8db7-1e0252134cfd
+      iscommand: false
+      name: Triage
+      type: title
+      version: -1
+    taskid: 15f9b1d7-8376-4337-8db7-1e0252134cfd
+    timertriggers: []
+    type: title
+    view: |-
+      {
+        "position": {
+          "x": 480,
+          "y": 340
+        }
+      }
+  "8":
+    id: "8"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    note: false
+    quietmode: 0
+    separatecontext: false
+    skipunavailable: false
+    task:
+      brand: ""
+      id: 494b3e99-5220-43ed-8b53-a3e5471e7ce0
+      iscommand: false
+      name: Incident Closed
+      type: title
+      version: -1
+    taskid: 494b3e99-5220-43ed-8b53-a3e5471e7ce0
+    timertriggers: []
+    type: title
+    view: |-
+      {
+        "position": {
+          "x": 50,
+          "y": 1010
+        }
+      }
+  "12":
+    id: "12"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    nexttasks:
+      '#none#':
+      - "13"
+    note: false
+    quietmode: 0
+    separatecontext: true
+    skipunavailable: false
+    task:
+      brand: ""
+      id: 2e382ed9-8e78-4ee6-8cb1-1a4eb601e81d
+      iscommand: false
+      name: Process Email - Generic
+      playbookId: process_email_-_generic
+      type: playbook
+      version: -1
+    taskid: 2e382ed9-8e78-4ee6-8cb1-1a4eb601e81d
+    timertriggers: []
+    type: playbook
+    view: |-
+      {
+        "position": {
+          "x": 265,
+          "y": 485
+        }
+      }
+  "13":
+    id: "13"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    nexttasks:
+      '#none#':
+      - "18"
+    note: false
+    quietmode: 0
+    separatecontext: true
+    skipunavailable: false
+    task:
+      brand: ""
+      id: 570c59b6-4583-4a98-8ebe-fc243521b133
+      iscommand: false
+      name: Extract Indicators From File - Generic v2
+      playbookId: Extract Indicators From File - Generic v2
+      type: playbook
+      version: -1
+    taskid: 570c59b6-4583-4a98-8ebe-fc243521b133
+    timertriggers: []
+    type: playbook
+    view: |-
+      {
+        "position": {
+          "x": 50,
+          "y": 660
+        }
+      }
+  "15":
+    id: "15"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    note: false
+    quietmode: 0
+    separatecontext: false
+    skipunavailable: false
+    task:
+      brand: ""
+      id: 284a7353-2e6f-41e1-82e2-8f6b4896b99b
+      iscommand: false
+      name: MachineLearning
+      type: title
+      version: -1
+    taskid: 284a7353-2e6f-41e1-82e2-8f6b4896b99b
+    timertriggers: []
+    type: title
+    view: |-
+      {
+        "position": {
+          "x": 695,
+          "y": 500
+        }
+      }
+  "17":
+    id: "17"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    note: false
+    quietmode: 0
+    separatecontext: true
+    skipunavailable: false
+    task:
+      brand: ""
+      description: Detonate file through active integrations that support file detonation
+      id: 8940a3f7-430d-4081-803d-ff80051fa1cd
+      iscommand: false
+      name: Detonate File - Generic_copy
+      playbookId: 671d1b8c-8aa2-4400-8774-2606728ebb5c
+      type: playbook
+      version: -1
+    taskid: 8940a3f7-430d-4081-803d-ff80051fa1cd
+    timertriggers: []
+    type: playbook
+    view: |-
+      {
+        "position": {
+          "x": 950,
+          "y": 770
+        }
+      }
+  "18":
+    id: "18"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    nexttasks:
+      '#none#':
+      - "8"
+    note: false
+    quietmode: 0
+    separatecontext: true
+    skipunavailable: false
+    task:
+      brand: ""
+      id: c1d5990d-d63c-4a09-8615-031390f29501
+      iscommand: false
+      name: 'Entity Enrichment - URL Enrich Only - Phishing v2_copy - Nader '
+      playbookId: 40820e63-a359-43f8-8036-f1f789b69ef4
+      type: playbook
+      version: -1
+    taskid: c1d5990d-d63c-4a09-8615-031390f29501
+    timertriggers: []
+    type: playbook
+    view: |-
+      {
+        "position": {
+          "x": 50,
+          "y": 835
+        }
+      }
+version: -1
+view: |-
+  {
+    "linkLabelsPosition": {},
+    "paper": {
+      "dimensions": {
+        "height": 1025,
+        "width": 1280,
+        "x": 50,
+        "y": 50
+      }
+    }
+  }
