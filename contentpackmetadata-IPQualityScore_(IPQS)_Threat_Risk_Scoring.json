@@ -1,0 +1,182 @@
+{
+	"author": "IPQualityScore",
+	"authorImage": "content/packs/IPQualityScore/Author_image.png",
+	"beta": false,
+	"categories": [
+		"Data Enrichment \u0026 Threat Intelligence",
+		"Forensics \u0026 Malware Analysis",
+		"Network Security"
+	],
+	"certification": "certified",
+	"contentItemTypes": [
+		"integration"
+	],
+	"contentItems": {
+		"automation": null,
+		"classifier": null,
+		"dashboard": null,
+		"incidentfield": null,
+		"incidenttype": null,
+		"indicatorfield": null,
+		"integration": [
+			{
+				"category": "Data Enrichment \u0026 Threat Intelligence",
+				"commands": [
+					{
+						"description": "Runs reputation on IPs.",
+						"name": "ip"
+					},
+					{
+						"description": "Runs reputation on email addresses.",
+						"name": "email"
+					},
+					{
+						"description": "Runs reputation on URLs.",
+						"name": "url"
+					}
+				],
+				"description": "Proactively Prevent Fraud",
+				"name": "IPQualityScore (Partner Contribution)"
+			}
+		],
+		"layoutscontainer": null,
+		"playbook": null,
+		"report": null,
+		"reputation": null,
+		"widget": null
+	},
+	"created": "2021-05-10T01:13:17+02:00",
+	"currentVersion": "1.0.2",
+	"dependencies": {
+		"Base": {
+			"author": "Cortex XSOAR",
+			"certification": "certified",
+			"mandatory": true,
+			"minVersion": "1.13.3",
+			"name": "Base"
+		}
+	},
+	"deprecated": false,
+	"description": "Detect threats with real-time risk scoring by IPQS. Playbook analyzes IP addresses, email addresses, and domains or URLs for high risk behavior.",
+	"downloads": 112,
+	"eulaLink": "https://github.com/demisto/content/blob/master/LICENSE",
+	"fromServerVersion": "5.0.0",
+	"general": [
+		"generalFieldCertified",
+		"generalFieldByPartner",
+		"generalFieldFree",
+		"generalFieldSupportIncluded"
+	],
+	"id": "IPQualityScore",
+	"installMessage": "",
+	"integrations": [
+		{
+			"imagePath": "content/packs/IPQualityScore/IPQualityScore_image.png",
+			"name": "IPQualityScore"
+		}
+	],
+	"itemVersion": "1.0.2",
+	"keywords": [
+		"risk score",
+		"threat score",
+		"botnet",
+		"bad actor",
+		"ATO",
+		"takeover",
+		"account",
+		"cyber",
+		"proxy",
+		"vpn",
+		"tor",
+		"ip intelligence",
+		"ip address",
+		"ip",
+		"domain scoring",
+		"parked",
+		"parking",
+		"domain age",
+		"abuse",
+		"threat",
+		"risk",
+		"fraud",
+		"email validation",
+		"url scanner",
+		"malicious url",
+		"malicious domain",
+		"phishing",
+		"malware",
+		"ip reputation",
+		"email reputation",
+		"domain reputation",
+		"url reputation",
+		"detect",
+		"prevent",
+		"domain",
+		"url",
+		"feed",
+		"IOC",
+		"IOCs",
+		"indicators",
+		"botnet",
+		"virustotal",
+		"virus",
+		"command and control",
+		"C2",
+		"bot",
+		"ddos",
+		"flood",
+		"dos",
+		"denial",
+		"verify"
+	],
+	"legacy": true,
+	"name": "IPQualityScore (IPQS) Threat Risk Scoring",
+	"packID": "IPQualityScore",
+	"premium": false,
+	"previewOnly": false,
+	"price": 0,
+	"propagationLabels": [
+		"all"
+	],
+	"rawKeywords": null,
+	"rawTags": null,
+	"rawUseCases": null,
+	"readme": "The IPQualityScore (IPQS) Threat Risk Scoring app provides enterprise-grade threat intelligence for IP addresses, email addresses, URLs, and domains. Identify threats including high risk behavior, phishing \u0026 malware, bad actors, and fraudulent activity.\r\n\r\nAccess real-time threat data from a network of honeypots managed by IPQS, featuring over 5,000 sites on the web that act as traps for bad actors. Detect sophisticated abuse including residential \u0026 mobile proxy networks, compromised email accounts, and hijacked domains.\r\n\r\nDark Data™ enhances detection rates and mitigates bad actors with monitoring for stolen user details, compromised accounts, and high risk data on the dark web.\r\n\r\n## What does this pack do?\r\n\r\nThe playbooks included in this pack analyze threat details in real-time:\r\n\r\n- Threat hunting with automated analysis.\r\n- IP address reputation risk analysis and connection details.\r\n- Detect invalid, abusive, and temporary or disposable email addresses.\r\n- Phishing, malware, and suspicious URL analysis.\r\n- Parked domain detection, domain reputation, and domain age calculation.\r\n- Easy risk scores to identify threat severity.\r\n\r\nSimply plug in your IPQS API key to enable real-time scoring with Cortex XSOAR.\r\n\r\n_For more information, please visit our [Cortex XSOAR Developer Docs](https://xsoar.pan.dev/docs/reference/integrations/ip-quality-score)_",
+	"searchRank": 10,
+	"serverMaxVersion": "",
+	"serverMinVersion": "5.0.0",
+	"support": "partner",
+	"supportDetails": {
+		"email": "support@ipqualityscore.com",
+		"url": "https://www.ipqualityscore.com"
+	},
+	"tags": [
+		"Email",
+		"Malware",
+		"VPN",
+		"Threat Intelligence",
+		"Dark Web",
+		"Attack",
+		"Network",
+		"Security",
+		"Security Analytics",
+		"Scam",
+		"Spam",
+		"Trending",
+		"Use Case"
+	],
+	"toServerVersion": "",
+	"updated": "2021-09-12T11:20:40+02:00",
+	"useCases": [
+		"Brute Force",
+		"Hunting",
+		"Malware",
+		"Phishing",
+		"SANS",
+		"Threat Intelligence Management",
+		"Network Security",
+		"Compliance"
+	],
+	"version": -1,
+	"versionInfo": "400461"
+}
