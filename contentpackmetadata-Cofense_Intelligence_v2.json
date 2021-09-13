@@ -1,0 +1,115 @@
+{
+	"author": "Cofense",
+	"authorImage": "content/packs/CofenseIntelligenceV2/Author_image.png",
+	"beta": false,
+	"categories": [
+		"Data Enrichment \u0026 Threat Intelligence"
+	],
+	"certification": "certified",
+	"contentItemTypes": [
+		"integration"
+	],
+	"contentItems": {
+		"automation": null,
+		"classifier": null,
+		"dashboard": null,
+		"incidentfield": null,
+		"incidenttype": null,
+		"indicatorfield": null,
+		"integration": [
+			{
+				"category": "Data Enrichment \u0026 Threat Intelligence",
+				"commands": [
+					{
+						"description": "Checks the reputation of an IP address.",
+						"name": "ip"
+					},
+					{
+						"description": "Searches for extracted strings identified within malware campaigns.",
+						"name": "cofense-search"
+					},
+					{
+						"description": "Checks the reputation of a file hash.",
+						"name": "file"
+					},
+					{
+						"description": "Checks the reputation of an email address.",
+						"name": "email"
+					},
+					{
+						"description": "Checks the reputation of a URL.",
+						"name": "url"
+					}
+				],
+				"description": "Use the Cofense Intelligence integration to check the reputation of URLs, IP addresses, file hashes, and email addresses.",
+				"name": "Cofense Intelligence v2 (Partner Contribution)"
+			}
+		],
+		"layoutscontainer": null,
+		"playbook": null,
+		"report": null,
+		"reputation": null,
+		"widget": null
+	},
+	"created": "2021-07-13T16:53:51+02:00",
+	"currentVersion": "1.0.1",
+	"dependencies": {
+		"Base": {
+			"author": "Cortex XSOAR",
+			"certification": "certified",
+			"mandatory": true,
+			"minVersion": "1.13.10",
+			"name": "Base"
+		}
+	},
+	"deprecated": false,
+	"description": "Cofense Intelligence allows users to search for threat intelligence reports based on IPs, email address, file hashes, URLs and extracted strings.",
+	"downloads": 21,
+	"eulaLink": "https://github.com/demisto/content/blob/master/LICENSE",
+	"fromServerVersion": "5.5.0",
+	"general": [
+		"generalFieldCertified",
+		"generalFieldByPartner",
+		"generalFieldFree",
+		"generalFieldSupportIncluded"
+	],
+	"id": "CofenseIntelligenceV2",
+	"installMessage": "",
+	"integrations": [
+		{
+			"imagePath": "content/packs/CofenseIntelligenceV2/CofenseIntelligenceV2_image.png",
+			"name": "Cofense Intelligence v2"
+		}
+	],
+	"itemVersion": "1.0.1",
+	"keywords": [],
+	"legacy": true,
+	"name": "Cofense Intelligence v2",
+	"packID": "CofenseIntelligenceV2",
+	"premium": false,
+	"previewOnly": false,
+	"price": 0,
+	"propagationLabels": [
+		"all"
+	],
+	"rawKeywords": null,
+	"rawTags": null,
+	"rawUseCases": null,
+	"readme": "Cofense Intelligence is reliable, human-verified phishing intelligence for actionable defense and strategic planning. Cofense researchers track emerging trends in phishing, research active threats, and supplement highest-priority investigations. Consumers of the intelligence are confident knowing indicators were validated by Cofense prior to platform ingestion. Cofense Intelligence machine-readable threat intelligence is ingested into platforms to support automation along with human-readable reports to make informed decisions against today’s phishing attacks.\r\n\r\n## What does this pack do?\r\n - Ingests human-verified phishing intelligence with associated malware families\r\n - Correlates global phishing campaigns and indicators\r\n - Checks the reputation with impact ratings (Major, Moderate, Minor, None) of:\r\n     - URLs\r\n     - Domains\r\n     - IP addresses\r\n     - File hashes\r\n     - Email addresses\r\n     - Infrastructure type\r\n - Searches for strings associated with phishing attacks\r\n - Links to human-readable reports for an explanation as to why indicators are a risk to business\r\n\r\n",
+	"searchRank": 20,
+	"serverMaxVersion": "",
+	"serverMinVersion": "5.5.0",
+	"support": "partner",
+	"supportDetails": {
+		"email": "support@cofense.com",
+		"url": "https://cofense.com/contact-support/"
+	},
+	"tags": [
+		"New"
+	],
+	"toServerVersion": "",
+	"updated": "2021-09-12T11:24:41+02:00",
+	"useCases": [],
+	"version": -1,
+	"versionInfo": "405886"
+}
