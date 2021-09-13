@@ -1,0 +1,96 @@
+{
+	"author": "Cortex XSOAR",
+	"authorImage": "content/packs/Base/Author_image.png",
+	"beta": false,
+	"categories": [
+		"Data Enrichment \u0026 Threat Intelligence"
+	],
+	"certification": "certified",
+	"contentItemTypes": [
+		"integration"
+	],
+	"contentItems": {
+		"automation": null,
+		"classifier": null,
+		"dashboard": null,
+		"incidentfield": null,
+		"incidenttype": null,
+		"indicatorfield": null,
+		"integration": [
+			{
+				"category": "Data Enrichment \u0026 Threat Intelligence",
+				"commands": [
+					{
+						"description": "Checks for variations of a phishing domain name.",
+						"name": "dnstwist-domain-variations"
+					}
+				],
+				"description": "Use the DNSTwist integration to detect typosquatting, phishing, and corporate espionage.",
+				"name": "dnstwist"
+			}
+		],
+		"layoutscontainer": null,
+		"playbook": null,
+		"report": null,
+		"reputation": null,
+		"widget": null
+	},
+	"created": "2020-11-09T20:42:52+02:00",
+	"currentVersion": "1.1.0",
+	"dependencies": {
+		"Base": {
+			"author": "Cortex XSOAR",
+			"certification": "certified",
+			"mandatory": true,
+			"minVersion": "1.8.1",
+			"name": "Base"
+		}
+	},
+	"deprecated": false,
+	"description": "Use the DNSTwist integration to detect typosquatting, phishing, and corporate espionage.",
+	"downloads": 490,
+	"eulaLink": "https://github.com/demisto/content/blob/master/LICENSE",
+	"fromServerVersion": "5.0.0",
+	"general": [
+		"generalFieldCertified",
+		"generalFieldByCortexXSOAR",
+		"generalFieldFree",
+		"generalFieldSupportIncluded"
+	],
+	"id": "dnstwist",
+	"installMessage": "",
+	"integrations": [
+		{
+			"imagePath": "content/packs/dnstwist/dnstwist_image.png",
+			"name": "dnstwist"
+		}
+	],
+	"itemVersion": "1.1.0",
+	"keywords": [],
+	"legacy": true,
+	"name": "Dnstwist",
+	"packID": "dnstwist",
+	"premium": false,
+	"previewOnly": false,
+	"price": 0,
+	"propagationLabels": [
+		"all"
+	],
+	"rawKeywords": null,
+	"rawTags": null,
+	"rawUseCases": null,
+	"searchRank": 10,
+	"serverMaxVersion": "",
+	"serverMinVersion": "5.0.0",
+	"support": "xsoar",
+	"supportDetails": {
+		"email": "",
+		"url": "https://www.paloaltonetworks.com/cortex"
+	},
+	"tags": [],
+	"toServerVersion": "",
+	"updated": "2021-04-05T11:09:11+02:00",
+	"useCases": [],
+	"version": -1,
+	"versionInfo": "319880"
+}
