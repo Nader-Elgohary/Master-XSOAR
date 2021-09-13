@@ -1,0 +1,43 @@
+args:
+- default: true
+  description: Domain or IP indicator value that need to enrich
+  name: indicator_value
+  required: true
+comment: Enhancement script to enrich PassiveTotal host pair of children for Domain
+  and IP type of indicators.
+commonfields:
+  id: RiskIQPassiveTotalHostPairChildrenScript
+  version: -1
+contentitemexportablefields:
+  contentitemfields:
+    fromServerVersion: 5.0.0
+    itemVersion: 2.0.11
+    packID: PassiveTotal
+    packPropagationLabels:
+    - all
+    propagationLabels: []
+    toServerVersion: ""
+dependson:
+  must:
+  - '|||pt-get-host-pairs'
+dockerimage: demisto/python3:3.9.5.20070
+enabled: true
+engineinfo: {}
+name: RiskIQPassiveTotalHostPairChildrenScript
+pswd: ""
+runas: DBotWeakRole
+runonce: false
+script: |2
+
+
+  result = demisto.executeCommand('pt-get-host-pairs',
+                                  {'direction': 'children', 'query': demisto.args().get('indicator_value')}
+                                  )
+
+  demisto.results(result)
+scripttarget: 0
+subtype: python3
+system: true
+tags:
+- enhancement
+type: python
