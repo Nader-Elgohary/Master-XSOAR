@@ -1,0 +1,48 @@
+args:
+- description: entryID for telemetry log
+  name: entryID
+comment: Read Telemtry log
+commonfields:
+  id: HealthCheckReadTemeletryLog
+  version: -1
+contentitemexportablefields:
+  contentitemfields:
+    fromServerVersion: 6.0.0
+    itemVersion: 1.0.2
+    packID: HealthCheck
+    packPropagationLabels:
+    - all
+    propagationLabels: []
+    toServerVersion: ""
+dockerimage: demisto/python3:3.9.6.24019
+enabled: true
+engineinfo: {}
+name: HealthCheckReadTemeletryLog
+pswd: ""
+runas: DBotWeakRole
+runonce: false
+script: |2
+
+
+
+
+  res = demisto.executeCommand('getFilePath', {'id': demisto.args().get('entryID')})
+  if res[0]['Type'] == entryTypes['error']:
+      demisto.executeCommand("setIncident", {'xsoartelemetrystatus': 'Not Enabled'})
+      demisto.results('File not found')
+  else:
+      try:
+          with open(res[0]['Contents']['path'], 'r') as file:
+
+              if 'notelemetry' in file.read():
+                  demisto.executeCommand("setIncident", {'xsoartelemetrystatus': 'Not Enabled'})
+              else:
+                  demisto.executeCommand("setIncident", {'xsoartelemetrystatus': 'Enabled'})
+
+      except ValueError:
+          demisto.results('Unable to read file.')
+scripttarget: 0
+subtype: python3
+system: true
+tags: []
+type: python
