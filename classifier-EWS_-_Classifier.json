@@ -1,0 +1,36 @@
+{
+	"brands": null,
+	"defaultIncidentType": "",
+	"description": "Classifies EWS phishing email messages.",
+	"feed": false,
+	"fromServerVersion": "6.0.0",
+	"id": "EWS v2",
+	"incidentSamples": null,
+	"indicatorSamples": null,
+	"instanceIds": null,
+	"itemVersion": "1.9.2",
+	"keyTypeMap": {
+		"High": "Phishing",
+		"Low": "Phishing",
+		"Normal": "Phishing"
+	},
+	"locked": false,
+	"logicalVersion": 0,
+	"mapping": null,
+	"name": "EWS - Classifier",
+	"nameRaw": "EWS - Classifier",
+	"packID": "EWS",
+	"packPropagationLabels": [
+		"all"
+	],
+	"sourceClassifierId": "",
+	"system": true,
+	"toServerVersion": "",
+	"transformer": {
+		"complex": null,
+		"simple": "importance"
+	},
+	"type": "classification",
+	"unclassifiedCases": null,
+	"version": -1
+}
