@@ -1,0 +1,145 @@
+{
+	"author": "Cortex XSOAR",
+	"authorImage": "content/packs/Base/Author_image.png",
+	"beta": false,
+	"categories": [
+		"Forensics \u0026 Malware Analysis"
+	],
+	"certification": "certified",
+	"contentItemTypes": [
+		"integration",
+		"playbook"
+	],
+	"contentItems": {
+		"automation": null,
+		"classifier": null,
+		"dashboard": null,
+		"incidentfield": null,
+		"incidenttype": null,
+		"indicatorfield": null,
+		"integration": [
+			{
+				"category": "Forensics \u0026 Malware Analysis",
+				"commands": [
+					{
+						"description": "Returns summary information for a given MD5, SHA1 or SHA256 hash, and all reports generated for any environment ID.",
+						"name": "hybrid-analysis-scan"
+					},
+					{
+						"description": "Submits a file from the investigation to the analysis server. The minimum required authorization is \"default\".",
+						"name": "hybrid-analysis-submit-sample"
+					},
+					{
+						"description": "Performs a search on the database using the Hybrid Analysis search syntax.",
+						"name": "hybrid-analysis-search"
+					},
+					{
+						"description": "Submits a file for detonation in Hybrid Analysis.",
+						"name": "hybrid-analysis-detonate-file"
+					},
+					{
+						"description": "Returns the state of the file submission.",
+						"name": "hybrid-analysis-get-report-status"
+					},
+					{
+						"description": "Submits the URL of a website, or the URL that contains the file, for analysis.",
+						"name": "hybrid-analysis-quick-scan-url"
+					},
+					{
+						"description": "Submits The URL of a website or the URL that contains the file, for analysis.",
+						"name": "hybrid-analysis-submit-url"
+					},
+					{
+						"description": " Returns a list of available scanners.",
+						"name": "hybrid-analysis-list-scanners"
+					},
+					{
+						"description": "Returns the scan results of the given URL ID.",
+						"name": "hybrid-analysis-quick-scan-url-results"
+					}
+				],
+				"description": "Fully automated malware analysis with unique Hybrid Analysis.",
+				"name": "Hybrid Analysis"
+			}
+		],
+		"layoutscontainer": null,
+		"playbook": [
+			{
+				"description": "Detonates one or more files using the Hybrid Analysis integration.\nReturns relevant reports to the War Room and file reputations to the context data.\nAll file types are supported.",
+				"name": "Detonate File - HybridAnalysis"
+			},
+			{
+				"description": "Use this playbook to run quick-scan command with generic-polling",
+				"name": "Hybrid-analysis quick-scan"
+			}
+		],
+		"report": null,
+		"reputation": null,
+		"widget": null
+	},
+	"created": "2020-04-14T02:00:00+02:00",
+	"currentVersion": "1.0.0",
+	"dependencies": {
+		"Base": {
+			"author": "Cortex XSOAR",
+			"certification": "certified",
+			"mandatory": true,
+			"minVersion": "1.6.6",
+			"name": "Base"
+		},
+		"CommonPlaybooks": {
+			"author": "Cortex XSOAR",
+			"certification": "certified",
+			"mandatory": true,
+			"minVersion": "1.8.9",
+			"name": "Common Playbooks"
+		}
+	},
+	"deprecated": false,
+	"description": "Fully automated malware analysis with unique Hybrid Analysis.",
+	"downloads": 364,
+	"eulaLink": "https://github.com/demisto/content/blob/master/LICENSE",
+	"fromServerVersion": "5.0.0",
+	"general": [
+		"generalFieldCertified",
+		"generalFieldByCortexXSOAR",
+		"generalFieldFree",
+		"generalFieldSupportIncluded"
+	],
+	"id": "HybridAnalysis",
+	"installMessage": "",
+	"integrations": [
+		{
+			"imagePath": "content/packs/HybridAnalysis/HybridAnalysis_image.png",
+			"name": "Hybrid Analysis"
+		}
+	],
+	"itemVersion": "1.0.0",
+	"keywords": [],
+	"legacy": true,
+	"name": "Hybrid Analysis",
+	"packID": "HybridAnalysis",
+	"premium": false,
+	"previewOnly": false,
+	"price": 0,
+	"propagationLabels": [
+		"all"
+	],
+	"rawKeywords": null,
+	"rawTags": null,
+	"rawUseCases": null,
+	"searchRank": 0,
+	"serverMaxVersion": "",
+	"serverMinVersion": "5.0.0",
+	"support": "xsoar",
+	"supportDetails": {
+		"email": "",
+		"url": "https://www.paloaltonetworks.com/cortex"
+	},
+	"tags": [],
+	"toServerVersion": "",
+	"updated": "2020-11-09T20:43:00+02:00",
+	"useCases": [],
+	"version": -1,
+	"versionInfo": "253472"
+}
