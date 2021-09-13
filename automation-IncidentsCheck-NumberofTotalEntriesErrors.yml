@@ -1,0 +1,55 @@
+comment: Health Check dynamic section, showing the total number of errors in failed
+  incidents.
+commonfields:
+  id: IncidentsCheck-NumberofTotalEntriesErrors
+  version: -1
+contentitemexportablefields:
+  contentitemfields:
+    fromServerVersion: 6.0.0
+    itemVersion: 1.2.4
+    packID: IntegrationsAndIncidentsHealthCheck
+    packPropagationLabels:
+    - all
+    propagationLabels: []
+    toServerVersion: ""
+dockerimage: demisto/python3:3.9.5.21272
+enabled: true
+engineinfo: {}
+name: IncidentsCheck-NumberofTotalEntriesErrors
+pswd: ""
+runas: DBotWeakRole
+runonce: false
+script: |2
+
+
+
+  RED_HTML_STYLE = "color:#FF1744;text-align:center;font-size:800%;>"
+  GREEN_HTML_STYLE = "color:#00CD33;text-align:center;font-size:800%;>"
+
+
+  def main():
+      incident = demisto.incidents()
+      query = incident[0].get('CustomFields', {}).get('numberofentriesiderrors', 0)
+
+      if not query:
+          html = f"<h1 style={GREEN_HTML_STYLE}0</h1>"
+
+      else:
+          html = f"<h1 style={RED_HTML_STYLE}{str(query)}</h1>"
+
+      demisto.results({
+          'ContentsFormat': formats['html'],
+          'Type': entryTypes['note'],
+          'Contents': html
+      })
+
+
+  if __name__ in ["__main__", "builtin", "builtins"]:
+      main()
+scripttarget: 0
+subtype: python3
+system: true
+tags:
+- dynamic-section
+- failedIncidents
+type: python
