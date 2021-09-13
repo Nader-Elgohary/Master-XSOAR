@@ -1,0 +1,52 @@
+comment: Containers status
+commonfields:
+  id: HealthCheckContainersStatus
+  version: -1
+contentitemexportablefields:
+  contentitemfields:
+    fromServerVersion: 6.0.0
+    itemVersion: 1.0.2
+    packID: HealthCheck
+    packPropagationLabels:
+    - all
+    propagationLabels: []
+    toServerVersion: ""
+dockerimage: demisto/python3:3.9.6.24019
+enabled: true
+engineinfo: {}
+name: HealthCheckContainersStatus
+outputs:
+- contextPath: containers
+  description: Containers status table
+pswd: ""
+runas: DBotWeakRole
+runonce: false
+script: |2
+
+
+
+
+  def main():
+      incident = demisto.incidents()[0]
+      account_name = incident.get('account')
+      account_name = f'acc_{account_name}/' if account_name != "" else ""
+
+      res = execute_command('demisto-api-get', {'uri': f'{account_name}health/containers'})
+      containers = res['response']
+
+      return CommandResults(
+          readable_output=tableToMarkdown('Containers Status', [containers], headers=['all', 'inactive', 'running']),
+          outputs_prefix='containers',
+          outputs=[containers],
+          raw_response=containers,
+      )
+
+
+  if __name__ in ('__main__', '__builtin__', 'builtins'):  # pragma: no cover
+      return_results(main())
+scripttarget: 0
+subtype: python3
+system: true
+tags:
+- dynamic-section
+type: python
