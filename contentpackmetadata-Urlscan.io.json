@@ -1,0 +1,134 @@
+{
+	"author": "Cortex XSOAR",
+	"authorImage": "content/packs/Base/Author_image.png",
+	"beta": false,
+	"categories": [
+		"Data Enrichment \u0026 Threat Intelligence"
+	],
+	"certification": "certified",
+	"contentItemTypes": [
+		"integration",
+		"automation"
+	],
+	"contentItems": {
+		"automation": [
+			{
+				"description": "This script retrieves the HTTP transactions performed for a given URL using the UrlScan integration. \nUse this script inside a playbook and check the 'Run without a worker' checkbox in the Advanced section of the task that executes this script. This will cause the system to use less resources when polling.",
+				"name": "UrlscanGetHttpTransactions",
+				"tags": [
+					"polling",
+					"UrlScan"
+				]
+			}
+		],
+		"classifier": null,
+		"dashboard": null,
+		"incidentfield": null,
+		"incidenttype": null,
+		"indicatorfield": null,
+		"integration": [
+			{
+				"category": "Data Enrichment \u0026 Threat Intelligence",
+				"commands": [
+					{
+						"description": "Search for an indicator that is related to former urlscan.io scans.",
+						"name": "urlscan-search"
+					},
+					{
+						"description": "Deprecated. Use the url command instead.",
+						"name": "urlscan-submit"
+					},
+					{
+						"description": "Submits a URL to scan.",
+						"name": "url"
+					},
+					{
+						"description": "Returns the HTTP transaction list for the specified URL. Do not use this command in conjunction with the urlscan-get-http-transactions script.",
+						"name": "urlscan-get-http-transaction-list"
+					},
+					{
+						"description": "Submits a URL to retrieve its UUID.",
+						"name": "urlscan-submit-url-command"
+					},
+					{
+						"description": "Polls the urlscan service regarding the results of the specified URI.",
+						"name": "urlscan-poll-uri"
+					},
+					{
+						"description": "Returns the results page for the specified UUID.",
+						"name": "urlscan-get-result-page"
+					}
+				],
+				"description": "Use urlscan.io integration to perform scans on suspected URLs and see their reputation.",
+				"name": "urlscan.io"
+			}
+		],
+		"layoutscontainer": null,
+		"playbook": null,
+		"report": null,
+		"reputation": null,
+		"widget": null
+	},
+	"created": "2020-07-23T18:36:24+02:00",
+	"currentVersion": "1.1.10",
+	"dependencies": {
+		"Base": {
+			"author": "Cortex XSOAR",
+			"certification": "certified",
+			"mandatory": true,
+			"minVersion": "1.13.29",
+			"name": "Base"
+		}
+	},
+	"deprecated": false,
+	"description": "Urlscan.io reputation",
+	"downloads": 4897,
+	"eulaLink": "https://github.com/demisto/content/blob/master/LICENSE",
+	"fromServerVersion": "5.0.0",
+	"general": [
+		"generalFieldCertified",
+		"generalFieldByCortexXSOAR",
+		"generalFieldFree",
+		"generalFieldSupportIncluded"
+	],
+	"id": "UrlScan",
+	"installMessage": "",
+	"integrations": [
+		{
+			"imagePath": "content/packs/UrlScan/urlscan.io_image.png",
+			"name": "urlscan.io"
+		}
+	],
+	"itemVersion": "1.1.10",
+	"keywords": [],
+	"legacy": true,
+	"name": "Urlscan.io",
+	"packID": "UrlScan",
+	"premium": false,
+	"previewOnly": false,
+	"price": 0,
+	"propagationLabels": [
+		"all"
+	],
+	"rawKeywords": null,
+	"rawTags": null,
+	"rawUseCases": null,
+	"readme": "Note: Support for this pack will be moving to the partner around September 1, 2021.\n\nurlscan.io is a free service to scan and analyse websites. When a URL is\nsubmitted to urlscan.io, an automated process will browse to the URL like a\nregular user and record the activity that this page navigation creates. This\nincludes the domains and IPs contacted, the resources (JavaScript, CSS, etc)\nrequested from those domains, as well as additional information about the page\nitself. urlscan.io will take a screenshot of the page, record the DOM content,\nJavaScript global variables, cookies created by the page, and a myriad of other\nobservations. If the site is targeting the users one of the more than 600\nbrands tracked by urlscan.io, it will be highlighted as potentially malicious\nin the scan results.\n\nurlscan.io itself is a free service, but we also offer commercial products for\nheavy users and organisations that need additional insight.\n\nTo use the urlscan.io integration, sign up for a free user account and create\nan API key first: https://urlscan.io/user/signup\n\nThe urlscan.io content pack includes commands for:\n\n* Submitting URLs for scanning with different levels of visibility.\n* Using the urlscan.io Search API to find scans on the platform by a variety of indicators.\n* Retrieves the HTTP transactions made for a given URL using the URLScan integration.\n",
+	"searchRank": 10,
+	"serverMaxVersion": "",
+	"serverMinVersion": "5.0.0",
+	"support": "xsoar",
+	"supportDetails": {
+		"email": "",
+		"url": "https://www.paloaltonetworks.com/cortex"
+	},
+	"tags": [
+		"Partner Spotlight",
+		"Relationship"
+	],
+	"toServerVersion": "",
+	"updated": "2021-09-02T23:21:18+02:00",
+	"useCases": [],
+	"version": -1,
+	"versionInfo": "7423160"
+}
