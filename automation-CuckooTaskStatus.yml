@@ -1,0 +1,45 @@
+args:
+- default: true
+  description: ID of the task to check.
+  name: taskID
+  required: true
+comment: Check the current status of a task in Cuckoo sandbox.
+commonfields:
+  id: CuckooTaskStatus
+  version: -1
+contentitemexportablefields:
+  contentitemfields:
+    fromServerVersion: 5.0.0
+    itemVersion: 1.0.2
+    packID: CuckooSandbox
+    packPropagationLabels:
+    - all
+    propagationLabels: []
+    toServerVersion: ""
+dependson:
+  must:
+  - cuckoo-view-task
+dockerimage: demisto/python:2.7.18.20958
+engineinfo: {}
+name: CuckooTaskStatus
+pswd: ""
+runas: DBotWeakRole
+runonce: false
+script: |+
+  res = demisto.executeCommand("cuckoo-view-task", {"id": demisto.args()["taskID"]})
+  if isError(res[0]):
+      demisto.results(res)
+  else:
+      data = demisto.get(res[0], 'Contents.task')
+      if data:
+          data = {k: formatCell(data[k]) for k in data}
+          demisto.results( {'ContentsFormat': formats['table'], 'Type': entryTypes['note'], 'Contents': data} )
+      else:
+          demisto.results(res)
+
+scripttarget: 0
+subtype: python2
+system: true
+tags:
+- cuckoo
+type: python
