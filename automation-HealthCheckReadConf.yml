@@ -1,0 +1,62 @@
+args:
+- default: true
+  description: War room entryID of the file to read.
+  name: entryID
+  required: true
+comment: Read the license_data.log file extracted from the log bundle
+commonfields:
+  id: HealthCheckReadConf
+  version: -1
+contentitemexportablefields:
+  contentitemfields:
+    fromServerVersion: 6.0.0
+    itemVersion: 1.0.2
+    packID: HealthCheck
+    packPropagationLabels:
+    - all
+    propagationLabels: []
+    toServerVersion: ""
+dockerimage: demisto/python3:3.9.6.24019
+enabled: true
+engineinfo: {}
+name: HealthCheckReadConf
+outputs:
+- contextPath: FileData
+  description: Data read from war room file
+pswd: ""
+runas: DBotWeakRole
+runonce: false
+script: |2
+
+
+
+
+  multitenant = 'False'
+  multiRepo = 'False'
+
+  res = demisto.executeCommand('getFilePath', {'id': demisto.args()['entryID']})
+  if res[0]['Type'] == entryTypes['error']:
+      demisto.results('File not found')
+
+  try:
+      with open(res[0]['Contents']['path'], 'r') as file:
+          data = file.readlines()
+
+          for line in data:
+              if '"ProxyMode": true' in line:
+                  multitenant = 'True'
+              if '"remote": {' in line:
+                  multiRepo = 'True'
+          demisto.executeCommand("setIncident", {
+              "xsoarmultitenant": multitenant,
+              "xsoarmultirepo": multiRepo,
+          })
+
+
+  except ValueError:  # includes simplejson.decoder.JSONDecodeError
+      demisto.results('Decoding JSON has failed')
+scripttarget: 0
+subtype: python3
+system: true
+tags: []
+type: python
