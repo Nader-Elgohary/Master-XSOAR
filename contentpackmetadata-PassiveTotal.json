@@ -1,0 +1,390 @@
+{
+	"author": "RiskIQ",
+	"authorImage": "content/packs/PassiveTotal/Author_image.png",
+	"beta": false,
+	"categories": [
+		"Data Enrichment \u0026 Threat Intelligence"
+	],
+	"certification": "certified",
+	"contentItemTypes": [
+		"integration",
+		"automation",
+		"reputation",
+		"layoutscontainer"
+	],
+	"contentItems": {
+		"automation": [
+			{
+				"description": "Deprecated. No available replacement. Enrich the given IP or domain with metadata, malware, osint.",
+				"name": "PTEnrich",
+				"tags": [
+					"passive-total",
+					"server",
+					"threat-intel"
+				]
+			},
+			{
+				"description": "Enhancement script to enrich PassiveTotal components for Domain and IP type of indicators.",
+				"name": "RiskIQPassiveTotalComponentsScript",
+				"tags": [
+					"enhancement"
+				]
+			},
+			{
+				"description": "Set widgets to custom layout in Domain, IP and RiskIQ Asset type of indicators.",
+				"name": "RiskIQPassiveTotalComponentsWidgetScript",
+				"tags": [
+					"dynamic-indicator-section"
+				]
+			},
+			{
+				"description": "Enhancement script to enrich PassiveTotal host pair of children for Domain and IP type of indicators.",
+				"name": "RiskIQPassiveTotalHostPairChildrenScript",
+				"tags": [
+					"enhancement"
+				]
+			},
+			{
+				"description": "Enhancement script to enrich PassiveTotal host pair of parents for Domain and IP type of indicators.",
+				"name": "RiskIQPassiveTotalHostPairParentsScript",
+				"tags": [
+					"enhancement"
+				]
+			},
+			{
+				"description": "Set widgets to custom layout in Domain, IP and RiskIQ Asset type of indicators.",
+				"name": "RiskIQPassiveTotalHostPairsChildrenWidgetScript",
+				"tags": [
+					"dynamic-indicator-section"
+				]
+			},
+			{
+				"description": "Set widgets to custom layout in Domain, IP and RiskIQ Asset type of indicators.",
+				"name": "RiskIQPassiveTotalHostPairsParentsWidgetScript",
+				"tags": [
+					"dynamic-indicator-section"
+				]
+			},
+			{
+				"description": "Enhancement script to enrich PDNS information for Domain and IP type of indicators.",
+				"name": "RiskIQPassiveTotalPDNSScript",
+				"tags": [
+					"enhancement"
+				]
+			},
+			{
+				"description": "Set widgets to custom layout in Domain, IP and RiskIQ Asset type of indicators.",
+				"name": "RiskIQPassiveTotalPDNSWidgetScript",
+				"tags": [
+					"dynamic-indicator-section"
+				]
+			},
+			{
+				"description": "Set widgets to custom layout in Email and RiskIQAsset type of indicators.",
+				"name": "RiskIQPassiveTotalSSLForIssuerEmailWidgetScript",
+				"tags": [
+					"dynamic-indicator-section"
+				]
+			},
+			{
+				"description": "Set widgets to custom layout in Email and RiskIQAsset type of indicators.",
+				"name": "RiskIQPassiveTotalSSLForSubjectEmailWidgetScript",
+				"tags": [
+					"dynamic-indicator-section"
+				]
+			},
+			{
+				"description": "Enhancement script to enrich SSL information for Email, File SHA-1 and RiskIQSerialNumber type of indicators.",
+				"name": "RiskIQPassiveTotalSSLScript",
+				"tags": [
+					"enhancement"
+				]
+			},
+			{
+				"description": "Set widgets to custom layout in Email, RiskIQSerialNumber and File SHA-1 type of indicators.",
+				"name": "RiskIQPassiveTotalSSLWidgetScript",
+				"tags": [
+					"dynamic-indicator-section"
+				]
+			},
+			{
+				"description": "Enhancement script to enrich web trackers information for Domain and IP type of indicators.",
+				"name": "RiskIQPassiveTotalTrackersScript",
+				"tags": [
+					"enhancement"
+				]
+			},
+			{
+				"description": "Set widgets to custom layout in Domain, IP and RiskIQ Asset type of indicators.",
+				"name": "RiskIQPassiveTotalTrackersWidgetScript",
+				"tags": [
+					"dynamic-indicator-section"
+				]
+			},
+			{
+				"description": "Enhancement script to enrich whois information for Domain and Email type of indicators.",
+				"name": "RiskIQPassiveTotalWhoisScript",
+				"tags": [
+					"enhancement"
+				]
+			},
+			{
+				"description": "Set widgets to custom layout in Domain, Email and RiskIQ Asset type of indicators.",
+				"name": "RiskIQPassiveTotalWhoisWidgetScript",
+				"tags": [
+					"dynamic-indicator-section"
+				]
+			}
+		],
+		"classifier": null,
+		"dashboard": null,
+		"incidentfield": null,
+		"incidenttype": null,
+		"indicatorfield": null,
+		"integration": [
+			{
+				"category": "Data Enrichment \u0026 Threat Intelligence",
+				"commands": [
+					{
+						"description": "Get subdomains using a wildcard query.",
+						"name": "pt-get-subdomains"
+					},
+					{
+						"description": "Retrieve account details from PassiveTotal",
+						"name": "pt-account"
+					},
+					{
+						"description": "Get monitors associated with your account",
+						"name": "pt-monitors"
+					},
+					{
+						"description": "Get passive DNS data",
+						"name": "pt-passive-dns"
+					},
+					{
+						"description": "Get unique resolutions from passive DNS data",
+						"name": "pt-passive-unique"
+					},
+					{
+						"description": "Search DNS data for keywords",
+						"name": "pt-dns-keyword"
+					},
+					{
+						"description": "Enrich the given query with metadata",
+						"name": "pt-enrichment"
+					},
+					{
+						"description": "Get malware data",
+						"name": "pt-malware"
+					},
+					{
+						"description": "Check URL reputation data",
+						"name": "url"
+					},
+					{
+						"description": "Check domain reputation data",
+						"name": "domain"
+					},
+					{
+						"description": "Check IP reputation",
+						"name": "ip"
+					},
+					{
+						"description": "Get opensource intelligence data",
+						"name": "pt-osint"
+					},
+					{
+						"description": "Get WHOIS data for a domain or IP address",
+						"name": "pt-whois"
+					},
+					{
+						"description": "Search WHOIS details based on keywords",
+						"name": "pt-whois-keyword"
+					},
+					{
+						"description": "Get WHOIS records based on field matching queries",
+						"name": "pt-whois-search"
+					},
+					{
+						"description": "Get detailed information about a host",
+						"name": "pt-get-components"
+					},
+					{
+						"description": "Get host pairs based on dependent requests observed in web crawls",
+						"name": "pt-get-pairs"
+					},
+					{
+						"description": "Get the SSL certificate associated with the SHA-1",
+						"name": "pt-ssl-cert"
+					},
+					{
+						"description": "Get the SSL certificate history associated with an IP address or SHA-1",
+						"name": "pt-ssl-cert-history"
+					},
+					{
+						"description": "Search for SSL certificates based on a keyword",
+						"name": "pt-ssl-cert-keyword"
+					},
+					{
+						"description": "Search for SSL certificates based on field values",
+						"name": "pt-ssl-cert-search"
+					}
+				],
+				"description": "Deprecated. Use the PassiveTotal v2 integration instead.",
+				"name": "PassiveTotal (Deprecated)"
+			},
+			{
+				"category": "Data Enrichment \u0026 Threat Intelligence",
+				"commands": [
+					{
+						"description": "Gets WHOIS information records based on field matching queries.",
+						"name": "pt-whois-search"
+					},
+					{
+						"description": "Gets WHOIS information records based on queries.",
+						"name": "pt-get-whois"
+					},
+					{
+						"description": "Retrieves the host attribute components for a domain or IP address. Maximum 2000 records are fetched.",
+						"name": "pt-get-components"
+					},
+					{
+						"description": "Retrieves the host attribute trackers for a domain or IP address. Maximum 2000 records are fetched.",
+						"name": "pt-get-trackers"
+					},
+					{
+						"description": "Retrieves the passive DNS results from active account sources.",
+						"name": "pt-get-pdns-details"
+					},
+					{
+						"description": "Retrieves SSL certificates for a given field value.",
+						"name": "pt-ssl-cert-search"
+					},
+					{
+						"description": "Retrieves the host attribute pairs related to a domain or IP address. Maximum 2000 records are fetched.",
+						"name": "pt-get-host-pairs"
+					},
+					{
+						"description": "Provides data enrichment for domains.",
+						"name": "domain"
+					},
+					{
+						"description": "Retrieves information related to articles for a specific indicator.",
+						"name": "pt-get-articles"
+					},
+					{
+						"description": "Retrieves exposed services on the recently open ports for an IP address.",
+						"name": "pt-get-services"
+					},
+					{
+						"description": "Retrieves cookies addresses or hostname information based on cookie name or domain.",
+						"name": "pt-get-cookies"
+					}
+				],
+				"description": "Analyze and understand threat infrastructure from a variety of sources-passive DNS, active DNS, WHOIS, SSL certificates and more-without devoting resources to time-intensive manual threat research and analysis.",
+				"name": "PassiveTotal v2 (Partner Contribution)"
+			}
+		],
+		"layoutscontainer": [
+			{
+				"description": "PassiveTotal Domain Indicator Layout",
+				"name": "PassiveTotal Domain Indicator Layout"
+			},
+			{
+				"description": "PassiveTotal Email Indicator Layout",
+				"name": "PassiveTotal Email Indicator Layout"
+			},
+			{
+				"description": "PassiveTotal File SHA-1 Indicator Layout",
+				"name": "PassiveTotal File SHA-1 Indicator"
+			},
+			{
+				"description": "PassiveTotal IP Indicator Layout",
+				"name": "PassiveTotal IP Indicator Layout"
+			},
+			{
+				"description": "RiskIQSerialNumber Indicator Layout",
+				"name": "RiskIQSerialNumber Indicator"
+			}
+		],
+		"playbook": null,
+		"report": null,
+		"reputation": [
+			{
+				"details": "RiskIQSerialNumber",
+				"enhancementScriptNames": [],
+				"reputationScriptName": ""
+			}
+		],
+		"widget": null
+	},
+	"created": "2020-06-30T22:32:06+02:00",
+	"currentVersion": "2.0.11",
+	"dependencies": {
+		"Base": {
+			"author": "Cortex XSOAR",
+			"certification": "certified",
+			"mandatory": true,
+			"minVersion": "1.13.3",
+			"name": "Base"
+		},
+		"CommonTypes": {
+			"author": "Cortex XSOAR",
+			"certification": "certified",
+			"mandatory": true,
+			"minVersion": "3.1.7",
+			"name": "Common Types"
+		}
+	},
+	"deprecated": false,
+	"description": "Analyze and understand threat infrastructure from a variety of sources–passive DNS, active DNS, WHOIS, SSL certificates and more–without devoting resources to time-intensive manual threat research and analysis",
+	"downloads": 1700,
+	"eulaLink": "https://github.com/demisto/content/blob/master/LICENSE",
+	"fromServerVersion": "5.0.0",
+	"general": [
+		"generalFieldCertified",
+		"generalFieldByPartner",
+		"generalFieldFree",
+		"generalFieldSupportIncluded"
+	],
+	"id": "PassiveTotal",
+	"installMessage": "",
+	"integrations": [
+		{
+			"imagePath": "content/packs/PassiveTotal/PassiveTotal_image.png",
+			"name": "PassiveTotal (Deprecated)"
+		},
+		{
+			"imagePath": "content/packs/PassiveTotal/PassiveTotalv2_image.png",
+			"name": "PassiveTotal v2"
+		}
+	],
+	"itemVersion": "2.0.11",
+	"keywords": [],
+	"legacy": true,
+	"name": "PassiveTotal",
+	"packID": "PassiveTotal",
+	"premium": false,
+	"previewOnly": false,
+	"price": 0,
+	"propagationLabels": [
+		"all"
+	],
+	"rawKeywords": null,
+	"rawTags": null,
+	"rawUseCases": null,
+	"searchRank": 10,
+	"serverMaxVersion": "",
+	"serverMinVersion": "5.0.0",
+	"support": "partner",
+	"supportDetails": {
+		"email": "paloaltonetworks@riskiq.net",
+		"url": "https://www.riskiq.com/resources/support/"
+	},
+	"tags": [],
+	"toServerVersion": "",
+	"updated": "2021-09-12T11:15:35+02:00",
+	"useCases": [],
+	"version": -1,
+	"versionInfo": "400461"
+}
