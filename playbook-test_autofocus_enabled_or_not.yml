@@ -1,0 +1,121 @@
+contentitemexportablefields:
+  contentitemfields:
+    fromServerVersion: ""
+    itemVersion: ""
+    packID: ""
+    propagationLabels:
+    - all
+    toServerVersion: ""
+id: e601b3b5-b671-4dfd-8649-70471a90dc66
+inputs:
+- description: ""
+  key: test
+  playbookInputQuery: null
+  required: false
+  value:
+    simple: ${incident.detectionurl}
+name: test autofocus enabled or not
+outputs: []
+starttaskid: "0"
+tasks:
+  "0":
+    id: "0"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    nexttasks:
+      '#none#':
+      - "3"
+    note: false
+    quietmode: 0
+    separatecontext: false
+    skipunavailable: false
+    task:
+      brand: ""
+      id: 63643a7f-107b-4670-8865-4925fbc0f043
+      iscommand: false
+      name: ""
+      version: -1
+    taskid: 63643a7f-107b-4670-8865-4925fbc0f043
+    timertriggers: []
+    type: start
+    view: |-
+      {
+        "position": {
+          "x": 50,
+          "y": 50
+        }
+      }
+  "2":
+    id: "2"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    note: false
+    quietmode: 0
+    separatecontext: false
+    skipunavailable: false
+    task:
+      brand: ""
+      id: 90352f31-3b57-4bee-82f1-849258d0d335
+      iscommand: false
+      name: finished
+      type: title
+      version: -1
+    taskid: 90352f31-3b57-4bee-82f1-849258d0d335
+    timertriggers: []
+    type: title
+    view: |-
+      {
+        "position": {
+          "x": 70,
+          "y": 590
+        }
+      }
+  "3":
+    id: "3"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    note: false
+    quietmode: 0
+    separatecontext: true
+    skipunavailable: false
+    task:
+      brand: ""
+      description: |-
+        Enrich URLs using one or more integrations.
+
+        URL enrichment includes:
+        * SSL verification for URLs
+        * Threat information
+        * Providing of URL screenshots
+      id: 7541036a-7335-4ab3-887d-41ac2187b4a3
+      iscommand: false
+      name: URL Enrichment - Generic v2_copy - Nader
+      playbookId: a2cdc970-bb6f-477a-8880-be174822c6b9
+      type: playbook
+      version: -1
+    taskid: 7541036a-7335-4ab3-887d-41ac2187b4a3
+    timertriggers: []
+    type: playbook
+    view: |-
+      {
+        "position": {
+          "x": 50,
+          "y": 300
+        }
+      }
+version: -1
+view: |-
+  {
+    "linkLabelsPosition": {},
+    "paper": {
+      "dimensions": {
+        "height": 605,
+        "width": 400,
+        "x": 50,
+        "y": 50
+      }
+    }
+  }
