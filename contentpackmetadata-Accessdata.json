@@ -1,0 +1,147 @@
+{
+	"author": "Accessdata",
+	"authorImage": "content/packs/Accessdata/Author_image.png",
+	"beta": false,
+	"categories": [
+		"Forensics \u0026 Malware Analysis"
+	],
+	"certification": "certified",
+	"contentItemTypes": [
+		"integration",
+		"automation",
+		"playbook"
+	],
+	"contentItems": {
+		"automation": [
+			{
+				"description": "Reads the contents of the processes list XML file from context and checks if the given process exists in the process list.",
+				"name": "AccessdataCheckProcessExistsInSnapshot",
+				"tags": []
+			}
+		],
+		"classifier": null,
+		"dashboard": null,
+		"incidentfield": null,
+		"incidenttype": null,
+		"indicatorfield": null,
+		"integration": [
+			{
+				"category": "Forensics \u0026 Malware Analysis",
+				"commands": [
+					{
+						"description": "Returns a list of processes from the legacy agent.",
+						"name": "accessdata-legacyagent-get-processlist"
+					},
+					{
+						"description": "Creates a legacy agent memory dump.",
+						"name": "accessdata-legacyagent-get-memorydump"
+					},
+					{
+						"description": "Reads the file from a case folder and returns the contents to the current context.",
+						"name": "accessdata-read-casefile"
+					},
+					{
+						"description": "Checks status of the job.",
+						"name": "accessdata-jobstatus-scan"
+					},
+					{
+						"description": "Returns a snapshot path from the results of the process list job.",
+						"name": "accessdata-get-jobstatus-processlist"
+					},
+					{
+						"description": "Returns the memory dump path from the result of the memory dump job.",
+						"name": "accessdata-get-jobstatus-memorydump"
+					},
+					{
+						"description": "Returns the ID of the Quin-C processing case.",
+						"name": "accessdata-get-processing-case-id"
+					}
+				],
+				"description": "Use the Accessdata integration to protect against and provide additional visibility into phishing and other malicious email attacks.",
+				"name": "Accessdata (Partner Contribution)"
+			}
+		],
+		"layoutscontainer": null,
+		"playbook": [
+			{
+				"description": "Use as a sub-playbook to dump memory if given process is running on legacy AD agent",
+				"name": "Accessdata: Dump memory for malicious process"
+			}
+		],
+		"report": null,
+		"reputation": null,
+		"widget": null
+	},
+	"created": "2020-11-25T03:45:20+02:00",
+	"currentVersion": "1.0.4",
+	"dependencies": {
+		"Base": {
+			"author": "Cortex XSOAR",
+			"certification": "certified",
+			"mandatory": true,
+			"minVersion": "1.13.20",
+			"name": "Base"
+		},
+		"CommonPlaybooks": {
+			"author": "Cortex XSOAR",
+			"certification": "certified",
+			"mandatory": true,
+			"minVersion": "2.0.0",
+			"name": "Common Playbooks"
+		},
+		"CommonScripts": {
+			"author": "Cortex XSOAR",
+			"certification": "certified",
+			"mandatory": true,
+			"minVersion": "1.4.22",
+			"name": "Common Scripts"
+		}
+	},
+	"deprecated": false,
+	"description": "Use the Accessdata integration to protect against and provide additional visibility into phishing and other malicious email attacks.",
+	"downloads": 647,
+	"eulaLink": "https://github.com/demisto/content/blob/master/LICENSE",
+	"fromServerVersion": "5.0.0",
+	"general": [
+		"generalFieldCertified",
+		"generalFieldByPartner",
+		"generalFieldFree",
+		"generalFieldSupportIncluded"
+	],
+	"id": "Accessdata",
+	"installMessage": "",
+	"integrations": [
+		{
+			"imagePath": "content/packs/Accessdata/Accessdata_image.png",
+			"name": "Accessdata"
+		}
+	],
+	"itemVersion": "1.0.4",
+	"keywords": [],
+	"legacy": true,
+	"name": "Accessdata",
+	"packID": "Accessdata",
+	"premium": false,
+	"previewOnly": false,
+	"price": 0,
+	"propagationLabels": [
+		"all"
+	],
+	"rawKeywords": null,
+	"rawTags": null,
+	"rawUseCases": null,
+	"searchRank": 10,
+	"serverMaxVersion": "",
+	"serverMinVersion": "5.0.0",
+	"support": "partner",
+	"supportDetails": {
+		"email": "support@accessdata.com",
+		"url": "https://support.accessdata.com/hc/en-us"
+	},
+	"tags": [],
+	"toServerVersion": "",
+	"updated": "2021-08-19T14:40:45+02:00",
+	"useCases": [],
+	"version": -1,
+	"versionInfo": "413872"
+}
