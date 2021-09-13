@@ -1,0 +1,53 @@
+comment: Trend graph for incidents created per day
+commonfields:
+  id: HealthCheckIntegrations
+  version: -1
+contentitemexportablefields:
+  contentitemfields:
+    fromServerVersion: 6.0.0
+    itemVersion: 1.0.2
+    packID: HealthCheck
+    packPropagationLabels:
+    - all
+    propagationLabels: []
+    toServerVersion: ""
+dockerimage: demisto/python3:3.9.6.24019
+enabled: true
+engineinfo: {}
+name: HealthCheckIntegrations
+pswd: ""
+runas: DBotWeakRole
+runonce: false
+script: |2
+
+
+
+  incident = demisto.incidents()[0]
+  accountName = incident.get('account')
+  accountName = f"acc_{accountName}" if accountName != "" else ""
+
+  res = demisto.executeCommand(
+      "demisto-api-post",
+      {
+          "uri": f"{accountName}/settings/integration/search",
+          "body": {
+              "size": 500
+          },
+      })[0]["Contents"]["response"]
+
+  enabledInstances = list(filter(lambda x: x['enabled'] == "true", res['instances']))
+  enabledInstancesNames = []
+  for instance in enabledInstances:
+      if instance['name'] in ['testmodule', 'd2']:
+          continue
+      else:
+          enabledInstancesNames.append({'instancename': instance['name']})
+
+  demisto.executeCommand('setIncident', {'healthcheckenabledinstances': enabledInstancesNames})
+  demisto.executeCommand('setIncident', {'healthchecknumberofengines': res['engines']['total']})
+scripttarget: 0
+subtype: python3
+system: true
+tags:
+- dynamic-section
+type: python
