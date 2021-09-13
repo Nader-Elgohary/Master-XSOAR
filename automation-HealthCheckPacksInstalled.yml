@@ -1,0 +1,47 @@
+comment: Presenting numbers of packs installed
+commonfields:
+  id: HealthCheckPacksInstalled
+  version: -1
+contentitemexportablefields:
+  contentitemfields:
+    fromServerVersion: 6.0.0
+    itemVersion: 1.0.2
+    packID: HealthCheck
+    packPropagationLabels:
+    - all
+    propagationLabels: []
+    toServerVersion: ""
+dockerimage: demisto/python3:3.9.6.24019
+enabled: true
+engineinfo: {}
+name: HealthCheckPacksInstalled
+pswd: ""
+runas: DBotWeakRole
+runonce: false
+script: |2
+
+
+  GREEN_HTML_STYLE = "color:#00CD33;text-align:center;font-size:800%;>"
+
+
+  def main():
+      incident = demisto.incidents()
+      query = incident[0].get('CustomFields', {}).get('healthchecktotalpacksinstalled', 0)
+
+      html = f"<h1 style={GREEN_HTML_STYLE}{str(query)}</h1>"
+
+      demisto.results({
+          'ContentsFormat': formats['html'],
+          'Type': entryTypes['note'],
+          'Contents': html
+      })
+
+
+  if __name__ in ["__main__", "builtin", "builtins"]:
+      main()
+scripttarget: 0
+subtype: python3
+system: true
+tags:
+- dynamic-section
+type: python
