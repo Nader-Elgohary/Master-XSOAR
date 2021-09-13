@@ -1,0 +1,758 @@
+category: Data Enrichment & Threat Intelligence
+commonfields:
+  id: IPQualityScore
+  version: -1
+configuration:
+- display: API Key
+  name: apikey
+  required: true
+  type: 4
+- display: Trust any certificate (not secure)
+  name: insecure
+  required: false
+  type: 8
+- display: Use system proxy settings
+  name: proxy
+  required: false
+  type: 8
+- additionalinfo: Threshold for fraud score from IP lookup to be marked as suspicious
+  defaultvalue: "75"
+  display: IP Suspicious Score Threshold
+  name: ip_suspicious_score_threshold
+  required: false
+  type: 0
+- additionalinfo: Threshold for fraud score from IP lookup to be marked as malicious
+  defaultvalue: "90"
+  display: IP Malicious Score Threshold
+  name: ip_malicious_score_threshold
+  required: false
+  type: 0
+- additionalinfo: Threshold for fraud score from Email lookup to be marked as suspicious
+  defaultvalue: "75"
+  display: Email Suspicious Score Threshold
+  name: email_suspicious_score_threshold
+  required: false
+  type: 0
+- additionalinfo: Threshold for fraud score from Email lookup to be marked as malicious
+  defaultvalue: "90"
+  display: Email Malicious Score Threshold
+  name: email_malicious_score_threshold
+  required: false
+  type: 0
+- additionalinfo: Threshold for fraud score from Url lookup to be marked as suspicious
+  defaultvalue: "75"
+  display: Url Suspicious Score Threshold
+  name: url_suspicious_score_threshold
+  required: false
+  type: 0
+- additionalinfo: Threshold for fraud score from Url lookup to be marked as malicious
+  defaultvalue: "90"
+  display: Url Malicious Score Threshold
+  name: url_malicious_score_threshold
+  required: false
+  type: 0
+- additionalinfo: Reliability of the source providing the intelligence data
+  defaultvalue: F - Reliability cannot be judged
+  display: Source Reliability
+  name: feedReliability
+  options:
+  - A - Completely reliable
+  - B - Usually reliable
+  - C - Fairly reliable
+  - D - Not usually reliable
+  - E - Unreliable
+  - F - Reliability cannot be judged
+  required: true
+  type: 15
+contentitemexportablefields:
+  contentitemfields:
+    fromServerVersion: 5.0.0
+    itemVersion: 1.0.2
+    packID: IPQualityScore
+    packPropagationLabels:
+    - all
+    propagationLabels: []
+    toServerVersion: ""
+description: Proactively Prevent Fraud
+detaileddescription: "### Partner Contributed Integration\n#### Integration Author:
+  IPQualityScore\nSupport and maintenance for this integration are provided by the
+  author. Please use the following contact details:\n- **Email**: [support@ipqualityscore.com](mailto:support@ipqualityscore.com)\n-
+  **URL**: [https://www.ipqualityscore.com](https://www.ipqualityscore.com)\n***\n
+  \n\n---\n[View Integration Documentation](https://xsoar.pan.dev/docs/reference/integrations/ip-quality-score)"
+display: IPQualityScore (Partner Contribution)
+image: data:image/png;base64,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
+name: IPQualityScore
+script:
+  commands:
+  - arguments:
+    - default: true
+      description: IP address to check
+      isArray: true
+      name: ip
+      required: true
+    description: Runs reputation on IPs.
+    name: ip
+    outputs:
+    - contextPath: IPQualityScore.IP.success
+      description: Was the request successful?
+      type: Boolean
+    - contextPath: IPQualityScore.IP.message
+      description: A generic status message, either success or some form of an error
+        notice.
+      type: String
+    - contextPath: IPQualityScore.IP.fraud_score
+      description: The overall fraud score of the user based on the IP, user agent,
+        language, and any other optionally passed variables. Fraud Scores >= 75 are
+        suspicious, but not necessarily fraudulent. We recommend flagging or blocking
+        traffic with Fraud Scores >= 85, but you may find it beneficial to use a higher
+        or lower threshold.
+      type: Number
+    - contextPath: IPQualityScore.IP.country_code
+      description: Two character country code of IP address or "N/A" if unknown.
+      type: String
+    - contextPath: IPQualityScore.IP.region
+      description: Region (state) of IP address if available or "N/A" if unknown.
+      type: String
+    - contextPath: IPQualityScore.IP.city
+      description: City of IP address if available or "N/A" if unknown.
+      type: String
+    - contextPath: IPQualityScore.IP.ISP
+      description: ISP if one is known. Otherwise "N/A".
+      type: String
+    - contextPath: IPQualityScore.IP.ASN
+      description: Autonomous System Number if one is known. Null if nonexistent.
+      type: Number
+    - contextPath: IPQualityScore.IP.organization
+      description: Organization if one is known. Can be parent company or sub company
+        of the listed ISP. Otherwise "N/A".
+      type: String
+    - contextPath: IPQualityScore.IP.latitude
+      description: Latitude of IP address if available or "N/A" if unknown.
+      type: Number
+    - contextPath: IPQualityScore.IP.longitude
+      description: Longitude of IP address if available or "N/A" if unknown.
+      type: Number
+    - contextPath: IPQualityScore.IP.is_crawler
+      description: Is this IP associated with being a confirmed crawler from a mainstream
+        search engine such as Googlebot, Bingbot, Yandex, etc. based on hostname or
+        IP address verification.
+      type: Boolean
+    - contextPath: IPQualityScore.IP.timezone
+      description: Timezone of IP address if available or "N/A" if unknown.
+      type: String
+    - contextPath: IPQualityScore.IP.mobile
+      description: Is this user agent a mobile browser? (will always be false if the
+        user agent is not passed in the API request)
+      type: Boolean
+    - contextPath: IPQualityScore.IP.host
+      description: Hostname of the IP address if one is available.
+      type: String
+    - contextPath: IPQualityScore.IP.proxy
+      description: Is this IP address suspected to be a proxy? (SOCKS, Elite, Anonymous,
+        VPN, Tor, etc.)
+      type: Boolean
+    - contextPath: IPQualityScore.IP.vpn
+      description: Is this IP suspected of being a VPN connection? This can include
+        data center ranges which can become active VPNs at any time. The "proxy" status
+        will always be true when this value is true.
+      type: Boolean
+    - contextPath: IPQualityScore.IP.tor
+      description: Is this IP suspected of being a TOR connection? This can include
+        previously active TOR nodes and exits which can become active TOR exits at
+        any time. The "proxy" status will always be true when this value is true.
+      type: Boolean
+    - contextPath: IPQualityScore.IP.active_vpn
+      description: Premium Account Feature - Identifies active VPN connections used
+        by popular VPN services and private VPN servers.
+      type: Boolean
+    - contextPath: IPQualityScore.IP.active_tor
+      description: Premium Account Feature - Identifies active TOR exits on the TOR
+        network.
+      type: Boolean
+    - contextPath: IPQualityScore.IP.recent_abuse
+      description: This value will indicate if there has been any recently verified
+        abuse across our network for this IP address. Abuse could be a confirmed chargeback,
+        compromised device, fake app install, or similar malicious behavior within
+        the past few days.
+      type: Boolean
+    - contextPath: IPQualityScore.IP.bot_status
+      description: Premium Account Feature - Indicates if bots or non-human traffic
+        has recently used this IP address to engage in automated fraudulent behavior.
+        Provides stronger confidence that the IP address is suspicious.
+      type: Boolean
+    - contextPath: IPQualityScore.IP.connection_type
+      description: Classification of the IP address connection type as "Residential",
+        "Corporate", "Education", "Mobile", or "Data Center".
+      type: String
+    - contextPath: IPQualityScore.IP.abuse_velocity
+      description: Premium Account Feature - How frequently the IP address is engaging
+        in abuse across the IPQS threat network. Values can be "high", "medium", "low",
+        or "none". Can be used in combination with the Fraud Score to identify bad
+        behavior.
+      type: String
+    - contextPath: IPQualityScore.IP.request_id
+      description: A unique identifier for this request that can be used to lookup
+        the request details or send a postback conversion notice.
+      type: String
+    - contextPath: IPQualityScore.IP.address
+      description: The IP address that was queried.
+      type: String
+    - contextPath: DBotScore.Indicator
+      description: The indicator that was tested.
+      type: String
+    - contextPath: DBotScore.Score
+      description: The actual score.
+      type: Number
+    - contextPath: DBotScore.Type
+      description: The indicator type.
+      type: String
+    - contextPath: DBotScore.Vendor
+      description: The vendor used to calculate the score.
+      type: String
+    - contextPath: IP.Address
+      description: The IP address.
+      type: string
+    - contextPath: IP.ASN
+      description: 'The autonomous system name for the IP address, for example: "AS8948".'
+      type: string
+    - contextPath: IP.Hostname
+      description: The hostname that is mapped to this IP address.
+      type: string
+    - contextPath: IP.Geo.Country
+      description: The country in which the IP address is located.
+      type: string
+    - contextPath: IP.Geo.Description
+      description: Additional information about the location.
+      type: string
+    - contextPath: IP.Malicious.Vendor
+      description: The vendor reporting the IP address as malicious.
+      type: string
+    - contextPath: IP.Malicious.Description
+      description: A description explaining why the IP address was reported as malicious.
+      type: string
+  - arguments:
+    - default: true
+      description: Email address to check
+      isArray: true
+      name: email
+      required: true
+    description: Runs reputation on email addresses.
+    name: email
+    outputs:
+    - contextPath: IPQualityScore.Email.message
+      description: A generic status message, either success or some form of an error
+        notice.
+      type: String
+    - contextPath: IPQualityScore.Email.success
+      description: Was the request successful?
+      type: Boolean
+    - contextPath: IPQualityScore.Email.valid
+      description: Does this email address appear valid?
+      type: Boolean
+    - contextPath: IPQualityScore.Email.disposable
+      description: Is this email suspected of belonging to a temporary or disposable
+        mail service? Usually associated with fraudsters and scammers.
+      type: Boolean
+    - contextPath: IPQualityScore.Email.smtp_score
+      description: 'Validity score of email server''s SMTP setup. Range: "-1" - "3".
+        Scores above "-1" can be associated with a valid email. -1 = invalid email
+        address 0 = mail server exists, but is rejecting all mail 1 = mail server
+        exists, but is showing a temporary error 2 = mail server exists, but accepts
+        all email 3 = mail server exists and has verified the email address'
+      type: Number
+    - contextPath: IPQualityScore.Email.overall_score
+      description: 'Overall email validity score. Range: "0" - "4". Scores above "1"
+        can be associated with a valid email. 0 = invalid email address 1 = dns valid,
+        unreachable mail server 2 = dns valid, temporary mail rejection error 3 =
+        dns valid, accepts all mail 4 = dns valid, verified email exists'
+      type: Number
+    - contextPath: IPQualityScore.Email.first_name
+      description: Suspected first name based on email. Returns "CORPORATE" if the
+        email is suspected of being a generic company email. Returns "UNKNOWN" if
+        the first name was not determinable.
+      type: String
+    - contextPath: IPQualityScore.Email.generic
+      description: Is this email suspected as being a catch all or shared email for
+        a domain? ("admin@", "webmaster@", "newsletter@", "sales@", "contact@", etc.)
+      type: Boolean
+    - contextPath: IPQualityScore.Email.common
+      description: Is this email from a common email provider? ("gmail.com", "yahoo.com",
+        "hotmail.com", etc.)
+      type: Boolean
+    - contextPath: IPQualityScore.Email.dns_valid
+      description: Does the email's hostname have valid DNS entries? Partial indication
+        of a valid email.
+      type: Boolean
+    - contextPath: IPQualityScore.Email.honeypot
+      description: Is this email believed to be a "honeypot" or "SPAM trap"? Bulk
+        mail sent to these emails increases your risk of being blacklisted by large
+        ISPs & ending up in the spam folder.
+      type: Boolean
+    - contextPath: IPQualityScore.Email.deliverability
+      description: "How likely is this email to be delivered to the user and land
+        in their mailbox. Values can be \"high\", \"medium\", or \"low\".\t"
+      type: String
+    - contextPath: IPQualityScore.Email.frequent_complainer
+      description: Indicates if this email frequently unsubscribes from marketing
+        lists or reports email as SPAM.
+      type: Boolean
+    - contextPath: IPQualityScore.Email.spam_trap_score
+      description: Confidence level of the email address being an active SPAM trap.
+        Values can be "high", "medium", "low", or "none". We recommend scrubbing emails
+        with "high" or "medium" statuses. Avoid "low" emails whenever possible for
+        any promotional mailings.
+      type: String
+    - contextPath: IPQualityScore.Email.catch_all
+      description: Is this email likely to be a "catch all" where the mail server
+        verifies all emails tested against it as valid? It is difficult to determine
+        if the address is truly valid in these scenarios, since the email's server
+        will not confirm the account's status.
+      type: Boolean
+    - contextPath: IPQualityScore.Email.timed_out
+      description: Did the connection to the mail service provider timeout during
+        the verification? If so, we recommend increasing the "timeout" variable above
+        the default 7 second value. Lookups that timeout with a "valid" result as
+        false are most likely false and should be not be trusted.
+      type: Boolean
+    - contextPath: IPQualityScore.Email.suspect
+      description: This value indicates if the mail server is currently replying with
+        a temporary error and unable to verify the email address. This status will
+        also be true for "catch all" email addresses as defined below. If this value
+        is true, then we suspect the "valid" result may be tainted and there is not
+        a guarantee that the email address is truly valid.
+      type: Boolean
+    - contextPath: IPQualityScore.Email.recent_abuse
+      description: This value will indicate if there has been any recently verified
+        abuse across our network for this email address. Abuse could be a confirmed
+        chargeback, fake signup, compromised device, fake app install, or similar
+        malicious behavior within the past few days.
+      type: Boolean
+    - contextPath: IPQualityScore.Email.fraud_score
+      description: The overall Fraud Score of the user based on the email's reputation
+        and recent behavior across the IPQS threat network. Fraud Scores >= 75 are
+        suspicious, but not necessarily fraudulent.
+      type: Number
+    - contextPath: IPQualityScore.Email.suggested_domain
+      description: Default value is "N/A". Indicates if this email's domain should
+        in fact be corrected to a popular mail service. This field is useful for catching
+        user typos. For example, an email address with "gmai.com", would display a
+        suggested domain of "gmail.com". This feature supports all major mail service
+        providers.
+      type: String
+    - contextPath: IPQualityScore.Email.leaked
+      description: "Was this email address associated with a recent database leak
+        from a third party? Leaked accounts pose a risk as they may have become compromised
+        during a database breach.\t"
+      type: Boolean
+    - contextPath: IPQualityScore.Email.domain_age.human
+      description: 'A human description of when this domain was registered. (Ex: 3
+        months ago)'
+      type: Date
+    - contextPath: IPQualityScore.Email.domain_age.timestamp
+      description: 'The unix time since epoch when this domain was first registered.
+        (Ex: 1568061634)'
+      type: Number
+    - contextPath: IPQualityScore.Email.domain_age.iso
+      description: 'The time this domain was registered in ISO8601 format (Ex: 2019-09-09T16:40:34-04:00)'
+      type: Date
+    - contextPath: IPQualityScore.Email.first_seen.human
+      description: 'A human description of the email address age, using an estimation
+        of the email creation date when IPQS first discovered this email address.
+        (Ex: 3 months ago)'
+      type: Date
+    - contextPath: IPQualityScore.Email.first_seen.timestamp
+      description: 'The unix time since epoch when this email was first analyzed by
+        IPQS. (Ex: 1568061634)'
+      type: Number
+    - contextPath: IPQualityScore.Email.first_seen.iso
+      description: 'The time this email was first analyzed by IPQS in ISO8601 format
+        (Ex: 2019-09-09T16:40:34-04:00)'
+      type: Date
+    - contextPath: IPQualityScore.Email.sanitized_email
+      description: Sanitized email address with all aliases and masking removed, such
+        as multiple periods for Gmail.com.
+      type: String
+    - contextPath: IPQualityScore.Email.request_id
+      description: A unique identifier for this request that can be used to lookup
+        the request details or send a postback conversion notice.
+      type: String
+    - contextPath: IPQualityScore.Email.address
+      description: The email address that was queried.
+      type: String
+    - contextPath: DBotScore.Indicator
+      description: The indicator that was tested.
+      type: String
+    - contextPath: DBotScore.Score
+      description: The actual score.
+      type: Number
+    - contextPath: DBotScore.Type
+      description: The indicator type.
+      type: String
+    - contextPath: DBotScore.Vendor
+      description: The vendor used to calculate the score.
+      type: String
+  - arguments:
+    - default: true
+      description: Url address to check
+      isArray: true
+      name: url
+      required: true
+    description: Runs reputation on URLs.
+    name: url
+    outputs:
+    - contextPath: IPQualityScore.Url.message
+      description: A generic status message, either success or some form of an error
+        notice.
+      type: String
+    - contextPath: IPQualityScore.Url.success
+      description: Was the request successful?
+      type: Boolean
+    - contextPath: IPQualityScore.Url.unsafe
+      description: Is this domain suspected of being unsafe due to phishing, malware,
+        spamming, or abusive behavior? View the confidence level by analyzing the
+        "risk_score".
+      type: Boolean
+    - contextPath: IPQualityScore.Url.domain
+      description: Domain name of the final destination URL of the scanned link, after
+        following all redirects.
+      type: String
+    - contextPath: IPQualityScore.Url.ip_address
+      description: The IP address corresponding to the server of the domain name.
+      type: String
+    - contextPath: IPQualityScore.Url.server
+      description: 'The server banner of the domain''s IP address. For example: "nginx/1.16.0".
+        Value will be "N/A" if unavailable.'
+      type: String
+    - contextPath: IPQualityScore.Url.content_type
+      description: MIME type of URL's content. For example "text/html; charset=UTF-8".
+        Value will be "N/A" if unavailable.
+      type: String
+    - contextPath: IPQualityScore.Url.status_code
+      description: HTTP Status Code of the URL's response. This value should be "200"
+        for a valid website. Value is "0" if URL is unreachable.
+      type: Number
+    - contextPath: IPQualityScore.Url.page_size
+      description: Total number of bytes to download the URL's content. Value is "0"
+        if URL is unreachable.
+      type: Number
+    - contextPath: IPQualityScore.Url.domain_rank
+      description: Estimated popularity rank of website globally. Value is "0" if
+        the domain is unranked or has low traffic.
+      type: Number
+    - contextPath: IPQualityScore.Url.dns_valid
+      description: The domain of the URL has valid DNS records.
+      type: Boolean
+    - contextPath: IPQualityScore.Url.parking
+      description: Is the domain of this URL currently parked with a for sale notice?
+      type: Boolean
+    - contextPath: IPQualityScore.Url.spamming
+      description: Is the domain of this URL associated with email SPAM or abusive
+        email addresses?
+      type: Boolean
+    - contextPath: IPQualityScore.Url.malware
+      description: Is this URL associated with malware or viruses?
+      type: Boolean
+    - contextPath: IPQualityScore.Url.phishing
+      description: Is this URL associated with malicious phishing behavior?
+      type: Boolean
+    - contextPath: IPQualityScore.Url.suspicious
+      description: Is this URL suspected of being malicious or used for phishing or
+        abuse? Use in conjunction with the "risk_score" as a confidence level.
+      type: Boolean
+    - contextPath: IPQualityScore.Url.risk_score
+      description: The IPQS risk score which estimates the confidence level for malicious
+        URL detection. Risk Scores 85+ are high risk, while Risk Scores = 100 are
+        confirmed as accurate.
+      type: Number
+    - contextPath: IPQualityScore.Url.request_id
+      description: A unique identifier for this request that can be used to lookup
+        the request details or send a postback conversion notice.
+      type: String
+    - contextPath: IPQualityScore.Url.url
+      description: The URL being queried.
+      type: String
+    - contextPath: IPQualityScore.Url.adult
+      description: Is this URL or domain hosting dating or adult content?
+      type: Boolean
+    - contextPath: IPQualityScore.Url.domain_age.human
+      description: 'A human description of when this domain was registered. (Ex: 3
+        months ago)'
+      type: Date
+    - contextPath: IPQualityScore.Url.domain_age.timestamp
+      description: 'The unix time since epoch when this domain was first registered.
+        (Ex: 1568061634)'
+      type: Number
+    - contextPath: IPQualityScore.Url.domain_age.iso
+      description: 'The time this domain was registered in ISO8601 format (Ex: 2019-09-09T16:40:34-04:00)'
+      type: Date
+    - contextPath: DBotScore.Indicator
+      description: The indicator that was tested.
+      type: String
+    - contextPath: DBotScore.Score
+      description: The actual score.
+      type: Number
+    - contextPath: DBotScore.Type
+      description: The indicator type.
+      type: String
+    - contextPath: DBotScore.Vendor
+      description: The vendor used to calculate the score.
+      type: String
+    - contextPath: URL.Data
+      description: The URL
+      type: String
+    - contextPath: URL.Malicious.Vendor
+      description: The vendor reporting the URL as malicious.
+      type: String
+  dockerimage: demisto/python3:3.9.5.21272
+  runonce: false
+  script: |
+    import urllib.parse
+
+
+
+    ''' IMPORTS '''
+
+    # Disable insecure warnings
+    requests.packages.urllib3.disable_warnings()
+
+    ''' CONSTANTS '''
+    DATE_FORMAT = '%Y-%m-%dT%H:%M:%SZ'
+
+
+    class Client(BaseClient):
+
+        def get_ip_reputation(self, ip: str) -> Dict[str, Any]:
+            return self._http_request(
+                method='GET',
+                url_suffix=f'{ip}'
+            )
+
+        def get_email_reputation(self, email: str) -> Dict[str, Any]:
+            return self._http_request(
+                method='GET',
+                url_suffix=f'{email}'
+            )
+
+        def get_url_reputation(self, url: str) -> Dict[str, Any]:
+            return self._http_request(
+                method='GET',
+                url_suffix=f'{url}'
+            )
+
+
+    def get_reputation_reliability(reliability):
+        if reliability == "A+ - 3rd party enrichment":
+            return DBotScoreReliability.A_PLUS
+        if reliability == "A - Completely reliable":
+            return DBotScoreReliability.A
+        if reliability == "B - Usually reliable":
+            return DBotScoreReliability.B
+        if reliability == "C - Fairly reliable":
+            return DBotScoreReliability.C
+        if reliability == "D - Not usually reliable":
+            return DBotScoreReliability.D
+        if reliability == "E - Unreliable":
+            return DBotScoreReliability.E
+        if reliability == "F - Reliability cannot be judged":
+            return DBotScoreReliability.F
+
+
+    def test_module(client):
+        result = client.get_ip_reputation("8.8.8.8")
+        if result.get('success', False):
+            return 'ok'
+        else:
+            return result.get("message", result)
+
+
+    def ip_command(client, args, ip_suspicious_score_threshold, ip_malicious_score_threshold, reliability):
+        ips = argToList(args.get("ip"), ",")
+        results = []
+        for ip in ips:
+            result = client.get_ip_reputation(ip)
+            result['address'] = ip
+
+            human_readable = tableToMarkdown(f"IPQualityScore Results for {ip}", result, result.keys())
+
+            if result.get('fraud_score', 0) >= ip_malicious_score_threshold:
+                score = 3
+            elif result.get('fraud_score', 0) >= ip_suspicious_score_threshold:
+                score = 2
+            else:
+                score = 0
+
+            reputation = Common.DBotScore(
+                indicator=ip,
+                indicator_type=DBotScoreType.IP,
+                score=score,
+                integration_name='IPQualityScore',
+                reliability=get_reputation_reliability(reliability)
+            )
+
+            ip_context = Common.IP(
+                ip=ip,
+                dbot_score=reputation,
+                asn=result.get('ASN'),
+                hostname=result.get('host'),
+                geo_country=result.get('country_code'),
+                geo_longitude=result.get('longitude'),
+                geo_latitude=result.get('latitude')
+            )
+
+            results.append(CommandResults(
+                readable_output=human_readable,
+                indicator=ip_context,
+                outputs_prefix='IPQualityScore.IP',
+                outputs_key_field='address',
+                outputs=result,
+                raw_response=result))
+        return results
+
+
+    def email_command(client, args, email_suspicious_score_threshold, email_malicious_score_threshold, reliability):
+        emails = argToList(args.get("email"), ",")
+        results = []
+        for email in emails:
+            result = client.get_email_reputation(email)
+            result['address'] = email
+
+            human_readable = tableToMarkdown(f"IPQualityScore Results for {email}", result, result.keys())
+
+            if result.get('fraud_score', 0) >= email_malicious_score_threshold:
+                score = 3
+            elif result.get('fraud_score', 0) >= email_suspicious_score_threshold:
+                score = 2
+            else:
+                score = 0
+
+            reputation = Common.DBotScore(
+                indicator=email,
+                indicator_type=DBotScoreType.EMAIL,
+                score=score,
+                integration_name='IPQualityScore',
+                reliability=get_reputation_reliability(reliability)
+            )
+
+            ip_context = Common.EMAIL(
+                address=email,
+                dbot_score=reputation,
+                domain=result.get('sanitized_email', email).split("@")[-1]
+            )
+
+            results.append(CommandResults(
+                readable_output=human_readable,
+                indicator=ip_context,
+                outputs_prefix='IPQualityScore.Email',
+                outputs_key_field='address',
+                outputs=result,
+                raw_response=result))
+        return results
+
+
+    def url_command(client, args, url_suspicious_score_threshold, url_malicious_score_threshold, reliability):
+        urls = argToList(args.get("url"), ",")
+        results = []
+        for url in urls:
+            url_encoded = urllib.parse.quote(url, safe="")
+            result = client.get_url_reputation(url_encoded)
+            result['url'] = url
+
+            human_readable = tableToMarkdown(f"IPQualityScore Results for {url}", result, result.keys())
+
+            if result.get('fraud_score', 0) >= url_malicious_score_threshold:
+                score = 3
+            elif result.get('fraud_score', 0) >= url_suspicious_score_threshold:
+                score = 2
+            else:
+                score = 0
+
+            reputation = Common.DBotScore(
+                indicator=url,
+                indicator_type=DBotScoreType.URL,
+                score=score,
+                integration_name='IPQualityScore',
+                reliability=get_reputation_reliability(reliability)
+            )
+
+            ip_context = Common.URL(
+                url=url,
+                dbot_score=reputation
+            )
+
+            results.append(CommandResults(
+                readable_output=human_readable,
+                indicator=ip_context,
+                outputs_prefix='IPQualityScore.Url',
+                outputs_key_field='url',
+                outputs=result,
+                raw_response=result))
+        return results
+
+
+    def main():
+        """
+            PARSE AND VALIDATE INTEGRATION PARAMS
+        """
+        apikey = demisto.params().get('apikey')
+
+        # get the service API url
+        base_url_ip = urljoin('https://ipqualityscore.com/api/json/ip/', apikey)
+        base_url_email = urljoin('https://ipqualityscore.com/api/json/email/', apikey)
+        base_url_url = urljoin('https://ipqualityscore.com/api/json/url/', apikey)
+
+        verify_certificate = not demisto.params().get('insecure', False)
+
+        proxy = demisto.params().get('proxy', False)
+        LOG(f'Command being called is {demisto.command()}')
+        try:
+            if demisto.command() == 'test-module':
+                # This is the call made when pressing the integration Test button.
+                client = Client(
+                    base_url=base_url_ip,
+                    verify=verify_certificate,
+                    proxy=proxy)
+                result = test_module(client)
+                demisto.results(result)
+
+            elif demisto.command() == 'ip':
+                ip_suspicious_score_threshold = int(demisto.params().get('ip_suspicious_score_threshold'))
+                ip_malicious_score_threshold = int(demisto.params().get('ip_malicious_score_threshold'))
+                reliability = demisto.params().get('feedReliability')
+                client = Client(
+                    base_url=base_url_ip,
+                    verify=verify_certificate,
+                    proxy=proxy)
+                return_results(ip_command(client, demisto.args(), ip_suspicious_score_threshold,
+                                          ip_malicious_score_threshold, reliability))
+
+            elif demisto.command() == 'email':
+                email_suspicious_score_threshold = int(demisto.params().get('email_suspicious_score_threshold'))
+                email_malicious_score_threshold = int(demisto.params().get('email_malicious_score_threshold'))
+                reliability = demisto.params().get('feedReliability')
+                client = Client(
+                    base_url=base_url_email,
+                    verify=verify_certificate,
+                    proxy=proxy)
+                return_results(email_command(client, demisto.args(), email_suspicious_score_threshold,
+                                             email_malicious_score_threshold, reliability))
+
+            elif demisto.command() == 'url':
+                url_suspicious_score_threshold = int(demisto.params().get('url_suspicious_score_threshold'))
+                url_malicious_score_threshold = int(demisto.params().get('url_malicious_score_threshold'))
+                reliability = demisto.params().get('feedReliability')
+                client = Client(
+                    base_url=base_url_url,
+                    verify=verify_certificate,
+                    proxy=proxy)
+                return_results(url_command(client, demisto.args(), url_suspicious_score_threshold,
+                                           url_malicious_score_threshold, reliability))
+        # Log exceptions
+        except Exception as e:
+            return_error(f'Failed to execute {demisto.command()} command. Error: {str(e)}')
+
+
+    if __name__ in ('__main__', '__builtin__', 'builtins'):
+        main()
+  subtype: python3
+  type: python
+system: true
